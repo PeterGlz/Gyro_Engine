@@ -3,6 +3,9 @@
 #include <GL\GLU.h>
 #include <GL/glu.h>
 
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
 RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
@@ -69,5 +72,16 @@ void RenderGL::render()
     glVertex2f(0.0f, 0.0f);
     glEnd();
 
+
+}
+
+void RenderGL::dibujarimg()
+{
+    int flags=IMG_INIT_JPG|IMG_INIT_PNG;
+    int initted=IMG_Init(flags);
+
+    SDL_Surface *img;
+
+    img = IMG_Load("gato_gordo.jpg");
 
 }

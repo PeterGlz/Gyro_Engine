@@ -26,9 +26,6 @@ class RenderGL
 		///Funcion encargado de dibujar
 		void render();
 
-		///Funcion encargada de cargar imagenees
-		void dibujarimg();
-
 		int h;
 		int w;
 };

@@ -3,8 +3,7 @@
 #include <GL\GLU.h>
 #include <GL/glu.h>
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL_image.h>
 
 RenderGL g_renderGL; //Singleton
 
@@ -75,13 +74,3 @@ void RenderGL::render()
 
 }
 
-void RenderGL::dibujarimg()
-{
-    int flags=IMG_INIT_JPG|IMG_INIT_PNG;
-    int initted=IMG_Init(flags);
-
-    SDL_Surface *img;
-
-    img = IMG_Load("gato_gordo.jpg");
-
-}

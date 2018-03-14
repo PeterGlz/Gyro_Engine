@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string>
 
+#include "Load_Img.h"
+
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -19,6 +21,8 @@ void close();
 
 //Referencia a la ventana de windows
 SDL_Window* gWindow = NULL;
+
+
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
@@ -47,6 +51,9 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 bool init()
 {
+    ///------------------------------------------------------------<<<<<<<<<<<<<<<<
+    InitImg();
+
 	///Initialization flag
 	bool success = true;
 
@@ -74,6 +81,10 @@ bool init()
 			//SDL_GetRendererOutputSize(gWindow, &g_renderGL.w, &g_renderGL.h);
 			g_renderGL.w= SDL_GetWindowSurface(gWindow)->w;
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
+
+			///------------------------------------------------------------------<<<<<<<<<<<<<<<<
+			LoadImg(gWindow);
+
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
 			if (gContext == NULL)
@@ -102,6 +113,10 @@ void close()
 {
 	///Liberamos OpenGL
 	g_renderGL.liberar();
+
+	///----------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<
+    CloseImg();
+
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;

@@ -2,6 +2,7 @@
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
 #include <GL/glu.h>
+#include <iostream>
 
 #include <SDL_image.h>
 
@@ -17,6 +18,12 @@ RenderGL::~RenderGL()
 
 void RenderGL::inicializar()
 {
+    ///Indicamos que hay texturas
+    glEnable(GL_TEXTURE_2D);
+    ///Activamos transparencias
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	GLenum error = GL_NO_ERROR;
 	//Para obtener error: error = glGetError();
 	//Inicializamos Matrix
@@ -28,7 +35,7 @@ void RenderGL::inicializar()
 	glLoadIdentity();
 
 	float aspect =(float)w / (float)h;
-	const float WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
+	const float WorldSize= 30.0f; ///El mundo de opengl es de -10 a 10
 
 	if (w >= h)
 	{
@@ -70,7 +77,5 @@ void RenderGL::render()
     glBegin(GL_POINTS);
     glVertex2f(0.0f, 0.0f);
     glEnd();
-
-
 }
 

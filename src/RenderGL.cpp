@@ -2,6 +2,7 @@
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
 #include <GL/glu.h>
+#include "primitivo.h"
 
 RenderGL g_renderGL; //Singleton
 
@@ -54,15 +55,28 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
-
 }
+
+/*void dibtriangulo(float traX, float traY, float rot, float colR, float colG, float colB, float esca)
+{
+    glPushMatrix();
+        glTranslatef(traX, traY, 0.0f);
+        glRotatef(rot, 0.0f, 0.0f, 1.0f);
+        glColor3f(colR, colG, colB);
+        glScalef(esca, esca, 1.0f);
+        glBegin(GL_TRIANGLES);
+            glVertex3f(0.0f, 0.2f, 0.0f);
+            glVertex3f(-0.1f, -0.1f, 0.0f);
+            glVertex3f(0.1f, -0.1f, 0.0f);
+        glEnd();
+    glPopMatrix();
+}*/
 
 void RenderGL::render()
 {
 	///Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
-
 
     glPointSize(5.0f);
     glBegin(GL_POINTS);
@@ -76,12 +90,6 @@ void RenderGL::render()
         glVertex2d(0.5f, 0.5f);
     glEnd();
 
-    glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2d(0.3f, 0.0f);
-        glVertex2d(0.2f, -0.2f);
-        glVertex2d(0.4f, -0.2f);
-    glEnd();
-
-
+    dibtriangulo(0, 0, 0, 1, 1, 1, 1);
+    dibrectangulo();
 }

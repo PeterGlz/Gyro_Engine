@@ -65,6 +65,7 @@
 		</Compiler>
 		<Unit filename="include/RenderGL.h" />
 		<Unit filename="include/VectorMath.h" />
+		<Unit filename="include/primitivo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
 		<Extensions>

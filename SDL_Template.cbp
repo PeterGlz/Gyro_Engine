@@ -64,9 +64,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/RenderGL.h" />
+		<Unit filename="include/Texto.h" />
 		<Unit filename="include/VectorMath.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
+		<Unit filename="src/Texto.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

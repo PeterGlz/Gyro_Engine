@@ -63,6 +63,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Load_Img.h" />
 		<Unit filename="include/RenderGL.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/VectorMath.h" />

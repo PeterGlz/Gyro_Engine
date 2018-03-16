@@ -22,7 +22,6 @@ void close();
 //Referencia a la ventana de windows
 SDL_Window* gWindow = NULL;
 
-
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
@@ -52,7 +51,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 bool init()
 {
     ///------------------------------------------------------------<<<<<<<<<<<<<<<<
-    InitImg();
+    Imagen::InitImg();
 
 	///Initialization flag
 	bool success = true;
@@ -93,7 +92,7 @@ bool init()
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
 			///------------------------------------------------------------------<<<<<<<<<<<<<<<<
-			LoadImg(gWindow);
+			Imagen::LoadImg(gWindow);
 
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
@@ -129,7 +128,7 @@ void close()
 	g_renderGL.liberar();
 
 	///----------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<
-    CloseImg();
+    Imagen::CloseImg();
 
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);

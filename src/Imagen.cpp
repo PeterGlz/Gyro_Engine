@@ -1,6 +1,14 @@
 #include "SDL_image.h"
 #include "RenderGL.h"
 
+#include "../Load_Img.h"
+
+Imagen::~Imagen(){
+};
+
+Imagen::Imagen(){
+};
+
 void Imagen::InitImg(){
     IMG_Init(IMG_INIT_JPG);
 
@@ -15,8 +23,8 @@ void Imagen::LoadImg(SDL_Window* gWindow){
 
     //SDL_Renderer * renderer = SDL_CreateRenderer(newWindow, -1, 0);
     g_renderGL.renderSDL;
-    SDL_Surface * image = IMG_Load("gato_gordo.jpg");
-    SDL_Texture * texture = SDL_CreateTextureFromSurface(g_renderGL.renderSDL, image);
+    image = IMG_Load("gato_gordo.jpg");
+    texture = SDL_CreateTextureFromSurface(g_renderGL.renderSDL, image);
 
     SDL_RenderCopy(g_renderGL.renderSDL, texture, NULL, NULL);
     //SDL_RenderPresent(renderer);

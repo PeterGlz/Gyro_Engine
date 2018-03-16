@@ -25,6 +25,9 @@ SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
+///----------------------------------------------------------------------
+Imagen Hola;
+
 //------CORE ------------------------------------------------------------------------------------
 
 ///Teclado
@@ -92,7 +95,7 @@ bool init()
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
 			///------------------------------------------------------------------<<<<<<<<<<<<<<<<
-			Imagen::LoadImg(gWindow);
+			Hola.LoadImg(gWindow);
 
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
@@ -128,7 +131,7 @@ void close()
 	g_renderGL.liberar();
 
 	///----------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<
-    Imagen::CloseImg();
+    Hola.CloseImg();
 
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);

@@ -9,11 +9,14 @@ class Imagen{
         Imagen();
         virtual ~Imagen();
 
-        void InitImg();
+        static void InitImg();
         void LoadImg (SDL_Window* gWindow);
         void CloseImg ();
 
     private:
+
+        SDL_Surface * image;
+        SDL_Texture * texture;
 };
 
 #endif // LOAD_IMG_H_INCLUDED

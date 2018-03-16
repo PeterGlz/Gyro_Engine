@@ -57,21 +57,6 @@ void RenderGL::update()
 {
 }
 
-/*void dibtriangulo(float traX, float traY, float rot, float colR, float colG, float colB, float esca)
-{
-    glPushMatrix();
-        glTranslatef(traX, traY, 0.0f);
-        glRotatef(rot, 0.0f, 0.0f, 1.0f);
-        glColor3f(colR, colG, colB);
-        glScalef(esca, esca, 1.0f);
-        glBegin(GL_TRIANGLES);
-            glVertex3f(0.0f, 0.2f, 0.0f);
-            glVertex3f(-0.1f, -0.1f, 0.0f);
-            glVertex3f(0.1f, -0.1f, 0.0f);
-        glEnd();
-    glPopMatrix();
-}*/
-
 void RenderGL::render()
 {
 	///Limpiamos pantalla
@@ -84,12 +69,12 @@ void RenderGL::render()
         glVertex2f(0.0f, 0.0f);
     glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex2d(-0.5f, 0.5f);
-        glVertex2d(0.5f, 0.5f);
-    glEnd();
-
-    dibtriangulo(0, 0, 0, 1, 1, 1, 1);
-    dibrectangulo();
+    dibLinea(-0.2, 0.1, 0.0, 0.1, 1.0, 1.0, 1.0);
+    dibCirculo(0.1, 0.1, 0.1, 1.0, 1.0, 1.0);
+    dibPoligono(0.3, -0.1, 0.1, 5, 0.0, 1.0, 1.0, 1.0);
+    dibPoligono(0.3, 0.1, 0.1, 6, 0.0, 1.0, 1.0, 1.0);
+    dibPoligono(-0.3, 0.1, 0.1, 7, 0.0, 1.0, 1.0, 1.0);
+    dibPoligono(-0.3, -0.1, 0.1, 8, 0.0, 1.0, 1.0, 1.0);
+    dibTriangulo(0.1, -0.1, 0, 1, 1, 1, 1);
+    dibRectangulo(-0.1, -0.1, 0, 1, 1, 1, 1);
 }

@@ -19,11 +19,8 @@ void RenderGL::inicializar()
 	GLenum error = GL_NO_ERROR;
 	//Para obtener error: error = glGetError();
 	//Inicializamos Matrix
+	glViewport(0, 0, w, h);    //establecemos la dimensiones
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	//Model view Matrix
-	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
 	float aspect =(float)w / (float)h;
@@ -45,6 +42,11 @@ void RenderGL::inicializar()
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
+
+	//Model view Matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 }
@@ -63,18 +65,12 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    glPointSize(5.0f);
-    glBegin(GL_POINTS);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(0.0f, 0.0f);
-    glEnd();
-
-    dibLinea(-0.2, 0.1, 0.0, 0.1, 1.0, 1.0, 1.0);
-    dibCirculo(0.1, 0.1, 0.1, 1.0, 1.0, 1.0);
-    dibPoligono(0.3, -0.1, 0.1, 5, 0.0, 1.0, 1.0, 1.0);
-    dibPoligono(0.3, 0.1, 0.1, 6, 0.0, 1.0, 1.0, 1.0);
-    dibPoligono(-0.3, 0.1, 0.1, 7, 0.0, 1.0, 1.0, 1.0);
-    dibPoligono(-0.3, -0.1, 0.1, 8, 0.0, 1.0, 1.0, 1.0);
-    dibTriangulo(0.1, -0.1, 0, 1, 1, 1, 1);
-    dibRectangulo(-0.1, -0.1, 0, 1, 1, 1, 1);
+    DibLinea(-0.2, 0.1, 0.0, 0.1, 1, 1, 1);
+    DibCirculo(0.1, 0.1, 0.0, 0, 0, 0);
+    DibPoligono(0.3, -0.1, 0.1, 5, 0, 1, 1, 1);
+    DibPoligono(0.3, 0.1, 0.1, 6, 0, 1, 1, 1);
+    DibPoligono(-0.3, 0.1, 0.1, 7, 0, 1, 1, 1);
+    DibPoligono(-0.3, -0.1, 0.1, 8, 0, 1, 1, 1);
+    DibTriangulo(0.1, -0.1, 0, 0, 0, 0, 0);
+    DibRectangulo(-0.1, -0.1, 0, 0, 0, 0, 0);
 }

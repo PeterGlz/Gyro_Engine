@@ -10,7 +10,7 @@ class Imagen{
         virtual ~Imagen();
 
         static void InitImg();
-        void LoadImg (SDL_Window* gWindow);
+        void LoadImg ();
         void CloseImg ();
 
     private:

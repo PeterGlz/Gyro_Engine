@@ -26,7 +26,7 @@ SDL_Window* gWindow = NULL;
 SDL_GLContext gContext;
 
 ///----------------------------------------------------------------------
-Imagen Hola;
+Imagen MyImg;
 
 //------CORE ------------------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ bool init()
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
 			///------------------------------------------------------------------<<<<<<<<<<<<<<<<
-			Hola.LoadImg(gWindow);
+			MyImg.LoadImg();
 
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
@@ -131,7 +131,7 @@ void close()
 	g_renderGL.liberar();
 
 	///----------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<
-    Hola.CloseImg();
+    MyImg.CloseImg();
 
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);

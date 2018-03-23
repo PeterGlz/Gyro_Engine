@@ -14,6 +14,9 @@ class RenderGL
 	public:
 		RenderGL();
 		~RenderGL();
+		int long tiempoA;
+		int long tiempoB;
+		double t;
 
 		///Funcion encarga de inicializar OpenGL
 		///Regresa True si se inicio correctamente o false en caso cotrario

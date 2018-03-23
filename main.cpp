@@ -2,6 +2,7 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
+#include <math.h>
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
@@ -111,6 +112,9 @@ void close()
 
 int main(int argc, char* args[])
 {
+    int long tiempoA = SDL_GetTicks();
+    double t = 0.0;
+
 	///Start up SDL and create window
 	if (!init())
 	{
@@ -130,6 +134,9 @@ int main(int argc, char* args[])
 		///GameLoop
 		while (!GameLoop)
 		{
+		    int long tiempoB = SDL_GetTicks();
+		    double frameTime = (tiempoA - tiempoB) * 1000;
+		    tiempoA = tiempoB;
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{

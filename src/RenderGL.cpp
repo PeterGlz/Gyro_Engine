@@ -4,7 +4,7 @@
 #include <GL/glu.h>
 #include <iostream>
 
-#include <SDL_image.h>
+#include "../Load_Img.h"
 
 RenderGL g_renderGL; //Singleton
 
@@ -66,6 +66,14 @@ void RenderGL::update()
 
 }
 
+float vertices[]
+{
+    -0.5, 0.5, 0.0, ///top left
+    0.5, 0.5, 0.0, ///top right
+    0.5, -0.5, 0.0, ///bottom right
+    -0.5, -0.5, 0.0 ///bottom left
+};
+
 void RenderGL::render()
 {
 	///Limpiamos pantalla
@@ -77,5 +85,20 @@ void RenderGL::render()
     glBegin(GL_POINTS);
     glVertex2f(0.0f, 0.0f);
     glEnd();
+
+    unsigned int m_ObjetoTexturaUNO;
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glDrawArrays(GL_QUADS, 0, 4);
+    glDisableClientState(GL_VERTEX_ARRAY);
+
+    glGenTextures(1, &m_ObjetoTexturaUNO);
+    glBindTexture(GL_TEXTURE_2D, m_ObjetoTexturaUNO);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image->w,image ,GL_UNSIGNED_BYTE);
+
 }
 

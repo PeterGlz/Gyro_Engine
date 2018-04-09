@@ -4,14 +4,14 @@
 #include <cmath>
 
 ///Ejemplos para llamar a las funciones y dibujar las primitivas
-/*DibLinea(-2, 1, 0, 1, 0, 0, 0);
-DibTriangulo(1, -1, 0, 0, 0, 0, 0, 0);
-DibRectangulo(-1, -1, 0, 0, 0, 0, 0, 0);
-DibCirculo(1, 1, 0, 0, 0, 0, 0, 0);
-DibPoligono(3, -1, 1, 5, 0, 0, 0, 0);
-DibPoligono(3, 1, 1, 6, 0, 0, 0, 0);
-DibPoligono(-3, 1, 1, 7, 0, 0, 0, 0);
-DibPoligono(-3, -1, 1, 8, 0, 0, 0, 0);*/
+/*DibLinea(-2, 1, 0, 1);
+DibTriangulo(1, -1, 0);
+DibRectangulo(-1, -1, 0);
+DibCirculo(1, 1);
+DibPoligono(3, -1, 1, 5);
+DibPoligono(3, 1, 1, 6);
+DibPoligono(-3, 1, 1, 7);
+DibPoligono(-3, -1, 1, 8);*/
 
 /*DibCirculo(-10, 8, 0, 1, 1, 0.2, 0, 0);
 DibCirculo(-4, 7, 0, 1, 1, 1, 3, 0);
@@ -26,14 +26,8 @@ DibPoligono(-8, 2, 2, 7, 0, 0, 1, 0);*/
 
 ///Funcion dibujar linea
             ///coordenadas X y Y 1          Coordenadas X y Y 2         Colores RGB
-void DibLinea(float coorX1, float coorX2, float coorY1, float coorY2, float colR, float colG, float colB)
+void DibLinea(float coorX1, float coorX2, float coorY1, float coorY2, float colR = 1.0f, float colG = 1.0f, float colB = 1.0f)
 {
-    if(colR==0 && colG==0 && colB==0)
-    {
-        colR = 1.0;
-        colG = 1.0;
-        colB = 1.0;
-    }
     glPushMatrix();
         glColor3f(colR, colG, colB);
         glBegin(GL_LINES);
@@ -44,23 +38,9 @@ void DibLinea(float coorX1, float coorX2, float coorY1, float coorY2, float colR
 }
 
 ///Funcion dibujar triangulo
-                ///Traslacion en X y Y    Rotacion     Colores RGB                        Base         Altura
-void DibTriangulo(float traX, float traY, float rot, float colR, float colG, float colB, float base, float alto)
+                ///Traslacion en X y Y    Rotacion     Base             Altura      Colores RGB
+void DibTriangulo(float traX, float traY, float rot, float base = 1.0f, float alto = 1.0f, float colR = 1.0f, float colG = 1.0f, float colB = 1.0f)
 {
-    if(alto==0)
-    {
-        alto = 1;
-    }
-    if(base==0)
-    {
-        base = 1;
-    }
-    if(colR==0 && colG==0 && colB==0)
-    {
-        colR = 1.0;
-        colG = 1.0;
-        colB = 1.0;
-    }
     glPushMatrix();
         glTranslatef(traX, traY, 0.0f);
         glRotatef(rot, 0.0f, 0.0f, 1.0f);
@@ -75,23 +55,9 @@ void DibTriangulo(float traX, float traY, float rot, float colR, float colG, flo
 }
 
 ///Funcion dibujar rectangulo
-                 ///Traslacion en X y Y    Rotacion     Colores RGB                        Base         Altura
-void DibRectangulo(float traX, float traY, float rot, float colR, float colG, float colB, float base, float alto)
+                 ///Traslacion en X y Y    Rotacion     Base                Altura              Colores RGB
+void DibRectangulo(float traX, float traY, float rot, float base = 1.0f, float alto = 1.0f, float colR = 1.0f, float colG = 1.0f, float colB = 1.0f)
 {
-    if(alto==0)
-    {
-        alto = 1;
-    }
-    if(base==0)
-    {
-        base = 1;
-    }
-    if(colR==0 && colG==0 && colB==0)
-    {
-        colR = 1.0;
-        colG = 1.0;
-        colB = 1.0;
-    }
     glPushMatrix();
         glTranslatef(traX, traY, 0.0f);
         glRotatef(rot, 0.0f, 0.0f, 1.0f);
@@ -107,27 +73,9 @@ void DibRectangulo(float traX, float traY, float rot, float colR, float colG, fl
 }
 
 ///Funcion dibujar circulo
-            ///Posicion X y Y           Radio        Colores RGB                        Base         Altura
-void DibCirculo(float posx, float posy, float rad, float colR, float colG, float colB, float base, float alto)
+            ///Posicion X y Y           Radio               Base                ltura               Colores RGB
+void DibCirculo(float posx, float posy, float rad = 1.0f, float base = 1.0f, float alto = 1.0f, float colR = 1.0f, float colG = 1.0f, float colB = 1.0f)
 {
-    if(alto==0)
-    {
-        alto = 1;
-    }
-    if(base==0)
-    {
-        base = 1;
-    }
-    if(rad==0)
-    {
-        rad=1;
-    }
-    if(colR==0 && colG==0 && colB==0)
-    {
-        colR = 1.0;
-        colG = 1.0;
-        colB = 1.0;
-    }
     glPushMatrix();
         const int seg = 64;
         glTranslatef(posx, posy, 0.0f);
@@ -146,19 +94,9 @@ void DibCirculo(float posx, float posy, float rad, float colR, float colG, float
 }
 
 ///Funcion dibujar circulo
-             ///Posicion X y Y           Radio      Segmentos  Rotacion     Colores RGB                      Base         Altura
-void DibPoligono(float posx, float posy, float rad, int seg, float rot, float colR, float colG, float colB)
+             ///Posicion X y Y          Segmentos  Rotacion     Radio            Colores RGB
+void DibPoligono(float posx, float posy, int seg, float rot, float rad = 1.0f, float colR = 1.0f, float colG = 1.0f, float colB = 1.0f)
 {
-    if(rad==0)
-    {
-        rad=1;
-    }
-    if(colR==0 && colG==0 && colB==0)
-    {
-        colR = 1.0;
-        colG = 1.0;
-        colB = 1.0;
-    }
     glPushMatrix();
         glTranslatef(posx, posy, 0.0f);
         glRotatef(rot, 0.0f, 0.0f, 1.0f);

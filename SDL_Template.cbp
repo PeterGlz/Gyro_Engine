@@ -65,7 +65,7 @@
 			<Add directory="C:/Users/David/Desktop/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2  -lSDL2_image  -lSDL2_ttf  -lSDL2_mixer" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2  -lSDL2_image  -lSDL2_ttf" />
 			<Add directory="C:/Users/David/Desktop/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Load_Img.h" />

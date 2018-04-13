@@ -4,7 +4,7 @@
 #include <GL/glu.h>
 #include <iostream>
 
-#include "../Load_Img.h"
+
 
 RenderGL g_renderGL; //Singleton
 
@@ -27,15 +27,12 @@ void RenderGL::inicializar()
 	GLenum error = GL_NO_ERROR;
 	//Para obtener error: error = glGetError();
 	//Inicializamos Matrix
+	glViewport(0, 0, w, h);    //establecemos la dimensiones
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	//Model view Matrix
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
 	float aspect =(float)w / (float)h;
-	const float WorldSize= 30.0f; ///El mundo de opengl es de -10 a 10
+	const float WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
 
 	if (w >= h)
 	{
@@ -53,8 +50,21 @@ void RenderGL::inicializar()
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
-	//Initialize clear color
-	glClearColor(0.f, 0.f, 0.f, 1.f);
+
+	//Model view Matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glGenTextures(1, &m_ObjetoTexturaUNO);
+    glBindTexture(GL_TEXTURE_2D, m_ObjetoTexturaUNO);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, img.image->w, img.image->h, 0, GL_RGB, GL_UNSIGNED_BYTE, img.image->pixels);
+
+
+
 }
 
 void RenderGL::liberar()
@@ -80,25 +90,29 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
+    glDisable(GL_TEXTURE_2D);
     glColor3f(0.0f, 1.0f, 0.0f);
-    glPointSize(3.0f);
+    glPointSize(5.0f);
     glBegin(GL_POINTS);
     glVertex2f(0.0f, 0.0f);
     glEnd();
 
-    unsigned int m_ObjetoTexturaUNO;
-
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(3, GL_FLOAT, 0, vertices);
-    glDrawArrays(GL_QUADS, 0, 4);
-    glDisableClientState(GL_VERTEX_ARRAY);
-
-    glGenTextures(1, &m_ObjetoTexturaUNO);
+    glColor3f(1.0f, 1.0f, 1.0f);
+    glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, m_ObjetoTexturaUNO);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, image->w,image ,GL_UNSIGNED_BYTE);
+    glBegin(GL_QUADS);
+    glTexCoord2f(1, 1); glVertex3f(5, 0, 0);
+    glTexCoord2f(0, 1); glVertex3f(0, 0, 0);
+    glTexCoord2f(0, 0); glVertex3f(0, 5, 0);
+    glTexCoord2f(1, 0); glVertex3f(5, 5, 0);
+
+
+
+    glEnd();
+
+
+
 
 }
 

@@ -13,10 +13,13 @@ class Imagen{
         void LoadImg ();
         void CloseImg ();
 
+         SDL_Surface * image;
+         SDL_Texture * texture;
+
     private:
 
-        SDL_Surface * image;
-        SDL_Texture * texture;
+
+
 };
 
 #endif // LOAD_IMG_H_INCLUDED

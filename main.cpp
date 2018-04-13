@@ -25,7 +25,7 @@ SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
-///----------------------------------------------------------------------
+//Declaramos la imagen
 Imagen MyImg;
 
 //------CORE ------------------------------------------------------------------------------------
@@ -53,8 +53,9 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 bool init()
 {
-    ///------------------------------------------------------------<<<<<<<<<<<<<<<<
+    ///Inicializamos la imagen
     Imagen::InitImg();
+
 
 	///Initialization flag
 	bool success = true;
@@ -94,8 +95,9 @@ bool init()
 			g_renderGL.w= SDL_GetWindowSurface(gWindow)->w;
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
-			///------------------------------------------------------------------<<<<<<<<<<<<<<<<
+			///Cargamos la imagen
 			MyImg.LoadImg();
+			g_renderGL.img = MyImg;
 
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
@@ -130,7 +132,7 @@ void close()
 	///Liberamos OpenGL
 	g_renderGL.liberar();
 
-	///----------------------------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<
+	///Cerramos la imagen
     MyImg.CloseImg();
 
 	///Destruimos ventana

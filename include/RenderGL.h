@@ -4,6 +4,8 @@
 #include "VectorMath.h"
 #include "SDL_ttf.h"
 
+#include "../Load_Img.h"
+
 class RenderGL
 {
     private:
@@ -31,6 +33,9 @@ class RenderGL
         TTF_Font *gFont = NULL; ///Fuente global
 		int h;
 		int w;
+
+		Imagen img;
+        unsigned int m_ObjetoTexturaUNO;
 };
 
 extern RenderGL g_renderGL; //Singleton

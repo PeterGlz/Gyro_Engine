@@ -55,6 +55,7 @@ void RenderGL::inicializar()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
+	///Cargamos la textura y le asignamos la imagen a cargar
 	glGenTextures(1, &m_ObjetoTexturaUNO);
     glBindTexture(GL_TEXTURE_2D, m_ObjetoTexturaUNO);
 
@@ -97,15 +98,16 @@ void RenderGL::render()
     glVertex2f(0.0f, 0.0f);
     glEnd();
 
+    ///Se dibuja la textura
     glColor3f(1.0f, 1.0f, 1.0f);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, m_ObjetoTexturaUNO);
 
     glBegin(GL_QUADS);
-    glTexCoord2f(1, 1); glVertex3f(5, 0, 0);
+    glTexCoord2f(1, 1); glVertex3f(10, 0, 0);
     glTexCoord2f(0, 1); glVertex3f(0, 0, 0);
-    glTexCoord2f(0, 0); glVertex3f(0, 5, 0);
-    glTexCoord2f(1, 0); glVertex3f(5, 5, 0);
+    glTexCoord2f(0, 0); glVertex3f(0, 10, 0);
+    glTexCoord2f(1, 0); glVertex3f(10, 10, 0);
 
 
 

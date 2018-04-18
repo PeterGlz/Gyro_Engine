@@ -136,15 +136,14 @@ int main(int argc, char* args[])
 		{
 		    int long tiempoB = SDL_GetTicks();
 		    double frameTime = (tiempoA - tiempoB) * 1000;
-		    tiempoA = tiempoB;
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
-			    if (timeElapsed>= 1.0f) //mostramos los frames solo cuando haya ocurrido un minuto
+			    if (tiempoB>= 1.0f) //mostramos los frames solo cuando haya ocurrido un minuto
                 {
                     //Devolvemos contador a cero
-                    frameCnt=0;
-                    timeElapsed= 0.0f;
+                    frameTime=0;
+                    tiempoB= 0.0f;
                 }
 
 				if (e.type == SDL_QUIT) ///Salir
@@ -164,6 +163,7 @@ int main(int argc, char* args[])
 					SDL_GetMouseState(&x, &y);
 					handleMouse(&e, x, y);
 				}
+				tiempoA = tiempoB;
 			}
 
 			///Update

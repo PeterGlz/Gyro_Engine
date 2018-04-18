@@ -136,14 +136,15 @@ int main(int argc, char* args[])
 		{
 		    int long tiempoB = SDL_GetTicks();
 		    double frameTime = (tiempoA - tiempoB) * 1000;
+		    int frameCnt = 0;
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
 			    if (tiempoB>= 1.0f) //mostramos los frames solo cuando haya ocurrido un minuto
                 {
                     //Devolvemos contador a cero
-                    frameTime=0;
-                    tiempoB= 0.0f;
+                    frameCnt=0;
+                    frameTime= 0.0f;
                 }
 
 				if (e.type == SDL_QUIT) ///Salir

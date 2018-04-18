@@ -2,8 +2,11 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
+#include <sstream>
 
 #include "Load_Img.h"
+
+using namespace std;
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
@@ -27,6 +30,7 @@ SDL_GLContext gContext;
 
 //Declaramos la imagen
 Imagen myimg;
+Imagen myimg2;
 
 //------CORE ------------------------------------------------------------------------------------
 
@@ -53,6 +57,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 bool init()
 {
+
     ///Inicializamos la imagen
     Imagen::InitImg();
 
@@ -96,7 +101,8 @@ bool init()
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
 			///Cargamos la imagen
-			myimg.LoadImg();
+			myimg.LoadImg("mojado.jpg");
+			myimg2.LoadImg("mojado2.jpg");
 			g_renderGL.img = myimg;
 
 			///Creamos COntexto de OpenGL
@@ -134,6 +140,7 @@ void close()
 
 	///Cerramos la imagen
     myimg.CloseImg();
+    myimg2.CloseImg();
 
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);

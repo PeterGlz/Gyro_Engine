@@ -35,7 +35,9 @@ class RenderGL
 		int w;
 
 		Imagen img;
+		Imagen img2;
         unsigned int m_ObjetoTexturaUNO;
+        unsigned int m_ObjetoTexturaDOS;
 };
 
 extern RenderGL g_renderGL; //Singleton

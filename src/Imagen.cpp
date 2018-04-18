@@ -16,10 +16,14 @@ void Imagen::InitImg(){
 
 }
 
-void Imagen::LoadImg(){
+void Imagen::LoadImg(std::string img){
 
     ///Carga la imagen
-    image = IMG_Load("Recursos/mojado.jpg");
+    ///image = IMG_Load("Recursos/mojado.jpg");
+    std::string pic = "Recursos/" + img;
+
+    image = IMG_Load(pic.c_str());
+
     texture = SDL_CreateTextureFromSurface(g_renderGL.renderSDL, image);
 
     SDL_RenderCopy(g_renderGL.renderSDL, texture, NULL, NULL);

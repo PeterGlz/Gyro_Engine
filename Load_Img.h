@@ -1,7 +1,8 @@
-#include "SDL_image.h"
-
 #ifndef LOAD_IMG_H_INCLUDED
 #define LOAD_IMG_H_INCLUDED
+
+#include "SDL_image.h"
+#include <string>
 
 class Imagen{
 
@@ -10,7 +11,7 @@ class Imagen{
         virtual ~Imagen();
 
         static void InitImg();
-        void LoadImg ();
+        void LoadImg (std::string img);
         void CloseImg ();
 
          SDL_Surface * image;

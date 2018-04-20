@@ -9,9 +9,9 @@ RenderGL::RenderGL()
 {
 }
 
-RenderGL::~RenderGL()
+/*RenderGL::~RenderGL()
 {
-}
+}*/
 
 void RenderGL::inicializar()
 {

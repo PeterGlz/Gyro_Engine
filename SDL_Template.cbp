@@ -65,8 +65,12 @@
 		</Compiler>
 		<Unit filename="include/RenderGL.h" />
 		<Unit filename="include/VectorMath.h" />
+		<Unit filename="include/httpClient.h" />
+		<Unit filename="include/httpRequest.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
+		<Unit filename="src/httpClient.cpp" />
+		<Unit filename="src/httpRequest.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

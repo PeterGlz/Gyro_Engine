@@ -30,6 +30,8 @@ class RenderGL
 
 		int h;
 		int w;
+
+		double deltaTime;
 };
 
 extern RenderGL g_renderGL; //Singleton

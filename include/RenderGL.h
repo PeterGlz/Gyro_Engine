@@ -36,7 +36,7 @@ class RenderGL
 
 		Imagen img;
 		Imagen img2;
-        unsigned int m_ObjetoTexturaUNO;
+
         unsigned int m_ObjetoTexturaDOS;
 };
 

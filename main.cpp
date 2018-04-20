@@ -28,10 +28,6 @@ SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
-//Declaramos la imagen
-Imagen myimg;
-Imagen myimg2;
-
 //------CORE ------------------------------------------------------------------------------------
 
 ///Teclado
@@ -100,11 +96,6 @@ bool init()
 			g_renderGL.w= SDL_GetWindowSurface(gWindow)->w;
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
 
-			///Cargamos la imagen
-			myimg.LoadImg("mojado.jpg");
-			myimg2.LoadImg("mojado2.jpg");
-			g_renderGL.img = myimg;
-
 			///Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
 			if (gContext == NULL)
@@ -137,10 +128,6 @@ void close()
 
 	///Liberamos OpenGL
 	g_renderGL.liberar();
-
-	///Cerramos la imagen
-    myimg.CloseImg();
-    myimg2.CloseImg();
 
 	///Destruimos ventana
 	SDL_DestroyWindow(gWindow);

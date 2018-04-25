@@ -70,11 +70,13 @@
 		</Linker>
 		<Unit filename="Load_Img.h" />
 		<Unit filename="include/RenderGL.h" />
+		<Unit filename="include/SevenUp.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/VectorMath.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
+		<Unit filename="src/SevenUp.cpp" />
 		<Unit filename="src/Texto.cpp" />
 		<Extensions>
 			<code_completion />

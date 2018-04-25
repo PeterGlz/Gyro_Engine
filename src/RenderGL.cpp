@@ -3,6 +3,7 @@
 #include <GL\GLU.h>
 #include <GL/glu.h>
 #include <iostream>
+#include "SevenUp.h"
 
 RenderGL g_renderGL; //Singleton
 
@@ -115,5 +116,8 @@ void RenderGL::render()
 
     Textura(img.m_ObjetoTextura, 0, 0);
     Textura(img2.m_ObjetoTextura, -8, -8);
+
+    Sprite s;
+    s.Load();
 }
 

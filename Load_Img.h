@@ -4,7 +4,6 @@
 #include "SDL_image.h"
 #include <string>
 
-
 ///void RenderGL::inicializar()
 /*
 //Definimos la imagen a cargar
@@ -40,7 +39,6 @@ glTexCoord2f(0, 0); glVertex3f(0, 8, 0);
 glTexCoord2f(1, 0); glVertex3f(8, 8, 0);
 glEnd();
 glPopMatrix();
-}
 */
 
 ///void RenderGL::render()
@@ -56,11 +54,8 @@ Textura(img.m_ObjetoTextura, 0, 0);
 Textura(img2.m_ObjetoTextura, -8, -8);
 */
 
-
-
-
-class Imagen{
-
+class Imagen
+{
      public:
         Imagen();
         virtual ~Imagen();
@@ -75,9 +70,6 @@ class Imagen{
          unsigned int m_ObjetoTextura;
 
     private:
-
-
-
 };
 
 #endif // LOAD_IMG_H_INCLUDED

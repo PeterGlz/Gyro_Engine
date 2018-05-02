@@ -36,9 +36,6 @@ class RenderGL
 		int w;
 
 
-        Imagen img;
-		Imagen img2;
-
         unsigned int m_ObjetoTexturaDOS;
 
         Sprite spr;

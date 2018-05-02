@@ -30,10 +30,6 @@ void RenderGL::inicializar()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	//Definimos la imagen a cargar
-    img.LoadImg("mojado.jpg");
-    img2.LoadImg("mojado2.jpg");
-
 	float aspect =(float)w / (float)h;
 	const float WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
 
@@ -55,8 +51,7 @@ void RenderGL::inicializar()
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
 	//Cargamos la textura y le asignamos la imagen a cargar
-    img.InitOGL();
-    img2.InitOGL();
+    spr.Load("mojado.jpg");
 
 	//Model view Matrix
 	glMatrixMode(GL_MODELVIEW);
@@ -66,13 +61,12 @@ void RenderGL::inicializar()
 void RenderGL::liberar()
 {
     //Cerramos la imagen
-    img.CloseImg();
-    img2.CloseImg();
+    spr.Close();
 }
 
 void RenderGL::update()
 {
-    spr.Draw();
+
 }
 
 float vertices[]
@@ -96,6 +90,7 @@ void RenderGL::render()
     glVertex2f(0.0f, 0.0f);
     glEnd();
 
-    spr.Load();
+    glEnable(GL_TEXTURE_2D);
+     spr.Draw();
 }
 

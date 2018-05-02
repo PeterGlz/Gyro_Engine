@@ -5,6 +5,7 @@
 #include "SDL_ttf.h"
 
 #include "../Load_Img.h"
+#include "SevenUp.h"
 
 class RenderGL
 {
@@ -34,10 +35,14 @@ class RenderGL
 		int h;
 		int w;
 
-		Imagen img;
+
+        Imagen img;
 		Imagen img2;
 
         unsigned int m_ObjetoTexturaDOS;
+
+        Sprite spr;
+
 };
 
 extern RenderGL g_renderGL; //Singleton

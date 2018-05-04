@@ -39,6 +39,7 @@ class RenderGL
         unsigned int m_ObjetoTexturaDOS;
 
         Sprite spr;
+        Sprite spr2;
 
 };
 

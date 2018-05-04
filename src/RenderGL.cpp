@@ -17,6 +17,7 @@ RenderGL::~RenderGL()
 
 void RenderGL::inicializar()
 {
+    glEnable(GL_DEPTH_TEST);
     ///Indicamos que hay texturas
     glEnable(GL_TEXTURE_2D);
     ///Activamos transparencias
@@ -50,18 +51,20 @@ void RenderGL::inicializar()
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
-	//Cargamos la textura y le asignamos la imagen a cargar
+	///Cargamos la textura y le asignamos la imagen a cargar
     spr.Load("mojado.jpg");
+    spr2.Load("mojado2.jpg");
 
-	//Model view Matrix
+	///Model view Matrix
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
 
 void RenderGL::liberar()
 {
-    //Cerramos la imagen
+    ///Cerramos la imagen
     spr.Close();
+    spr2.Close();
 }
 
 void RenderGL::update()
@@ -89,8 +92,8 @@ void RenderGL::render()
     glBegin(GL_POINTS);
     glVertex2f(0.0f, 0.0f);
     glEnd();
-
     glEnable(GL_TEXTURE_2D);
-     spr.Draw();
+
+
 }
 

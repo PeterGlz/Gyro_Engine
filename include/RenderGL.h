@@ -2,6 +2,7 @@
 #define RENDERGL_H
 
 #include "VectorMath.h"
+#include "SDL_ttf.h"
 
 class RenderGL
 {
@@ -28,6 +29,8 @@ class RenderGL
 		///Funcion encargado de dibujar
 		void render();
 
+		SDL_Renderer* renderSDL; ///Rendere de SDL para usar con texto
+        TTF_Font *gFont = NULL; ///Fuente global
 		int h;
 		int w;
 

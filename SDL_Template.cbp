@@ -62,15 +62,24 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="C:/Users/David/Desktop/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2  -lSDL2_image  -lSDL2_ttf" />
+			<Add directory="C:/Users/David/Desktop/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
+		</Linker>
+		<Unit filename="Load_Img.h" />
 		<Unit filename="include/RenderGL.h" />
+		<Unit filename="include/SevenUp.h" />
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/VectorMath.h" />
 		<Unit filename="include/deltaTime.h" />
 		<Unit filename="include/primitivo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
 		<Unit filename="src/deltaTime.cpp" />
+		<Unit filename="src/SevenUp.cpp" />
 		<Unit filename="src/Texto.cpp" />
 		<Extensions>
 			<code_completion />

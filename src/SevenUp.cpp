@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include "SevenUp.h"
 #include "RenderGL.h"
+#include "../Load_Img.h"
 
 Sprite::Sprite()
 {
@@ -17,7 +18,6 @@ Sprite::Sprite()
 
 Sprite::~Sprite()
 {
-
 };
 
 ///Definimos la imagen a cargar

@@ -65,9 +65,9 @@ class Imagen
         void InitOGL();
         void CloseImg ();
 
-         SDL_Surface * image;
-         SDL_Texture * texture;
-         unsigned int m_ObjetoTextura;
+        SDL_Surface * image;
+        SDL_Texture * texture;
+        unsigned int m_ObjetoTextura;
 
     private:
 };

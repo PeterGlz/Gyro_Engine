@@ -39,5 +39,4 @@ class Sprite
         Imagen img;
 };
 
-
 #endif // SEVENUP_H_INCLUDED

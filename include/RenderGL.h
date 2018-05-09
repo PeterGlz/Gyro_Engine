@@ -1,9 +1,7 @@
 #ifndef RENDERGL_H
 #define RENDERGL_H
-
 #include "VectorMath.h"
 #include "SDL_ttf.h"
-
 #include "../Load_Img.h"
 #include "SevenUp.h"
 
@@ -35,12 +33,12 @@ class RenderGL
 		int h;
 		int w;
 
-
         unsigned int m_ObjetoTexturaDOS;
+        float hh;
+float ww;
 
         Sprite spr;
         Sprite spr2;
-
 };
 
 extern RenderGL g_renderGL; //Singleton

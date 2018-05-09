@@ -94,6 +94,10 @@ void RenderGL::render()
     glEnd();
     glEnable(GL_TEXTURE_2D);
 
-
+    spr.Draw();
+    //spr.SetRot(0);
+    spr.SetPos(0, 0);
+    spr.SetScale(5, 5);
+    spr.SetPriority(0.1f);
 }
 

@@ -61,27 +61,11 @@ void RenderGL::inicializar()
 
 void RenderGL::liberar()
 {
-    ///Cerramos la imagen
-    spr.Close();
-    spr2.Close();
 }
 
 void RenderGL::update()
-<<<<<<< HEAD
 {
-=======
-{
-
->>>>>>> Imagenes
 }
-
-float vertices[]
-{
-    -0.5, 0.5, 0.0, ///top left
-    0.5, 0.5, 0.0, ///top right
-    0.5, -0.5, 0.0, ///bottom right
-    -0.5, -0.5, 0.0 ///bottom left
-};
 
 void RenderGL::render()
 {

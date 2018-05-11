@@ -29,6 +29,11 @@ class Sprite
         void Draw();
         void Close();
 
+        float coord1;
+        float coord2;
+        float coord3;
+        float coord4;
+
     private:
         float rotz;
         float scaY;

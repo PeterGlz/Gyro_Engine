@@ -42,10 +42,19 @@ void handleKeys(unsigned char _key, int _x, int _y)
 ///Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
+    Sprite spr;
+
+    if(_x >= spr.coord1 && _y <= spr.coord2 && _x <= spr.coord4 && _y <= spr.coord3){
+        if(_evt->type == SDL_MOUSEBUTTONDOWN)
+        {
+            if(_evt->button.button == SDL_BUTTON_LEFT){
+                SDL_Log("Mouse Button is pressed.");
+            }
+        }
+    }
+
 	//Click mouse izq
-	if (_evt->button.button == SDL_BUTTON_LEFT)
-	{
-	}
+
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
@@ -170,7 +179,7 @@ int main(int argc, char* args[])
 					SDL_GetMouseState(&x, &y);
 					handleKeys(e.text.text[0], x, y);
 				}
-				else if (e.type = SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
+				else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
 				{
 					//obtenemos mouse
 					int x = 0, y = 0;

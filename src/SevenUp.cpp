@@ -71,6 +71,11 @@ void Sprite::Draw()
     glTexCoord2f(1, 0); glVertex3f(scaX, scaY, 0);
     glEnd();
     glPopMatrix();
+
+    coord1 = (posX - (scaX/2)) - (posY - (scaY/2)); ///Inferior Izquierda
+    coord2 = (posX - (scaX/2)) + (posY + (scaY/2)); ///Superior Îzquierda
+    coord3 = (posX + (scaX/2)) + (posY + (scaY/2)); ///Superior Derecha
+    coord4 = (posX + (scaX/2)) - (posY - (scaY/2)); ///Inferior Derecha
 }
 
 void Sprite::Close()

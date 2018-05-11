@@ -69,7 +69,6 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
-
 }
 
 float vertices[]

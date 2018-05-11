@@ -52,7 +52,7 @@ void RenderGL::inicializar()
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
 	///Cargamos la textura y le asignamos la imagen a cargar
-    spr.Load("mojado.jpg");
+    spr.Load("taco.jpg");
     spr2.Load("mojado2.jpg");
 
 	///Model view Matrix
@@ -94,9 +94,15 @@ void RenderGL::render()
     glEnable(GL_TEXTURE_2D);
 
     spr.Draw();
-    //spr.SetRot(0);
+    spr.SetRot(15);
     spr.SetPos(0, 0);
     spr.SetScale(5, 5);
-    spr.SetPriority(0.1f);
+    spr.SetPriority(0.3f);
+
+    spr2.Draw();
+    spr2.SetRot(-15);
+    spr2.SetPos(-7, -5);
+    spr2.SetScale(5, 5);
+    spr2.SetPriority(0.2f);
 }
 

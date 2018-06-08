@@ -42,14 +42,14 @@ void handleKeys(unsigned char _key, int _x, int _y)
 ///Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
-    if(_x >= RenderGL.spr->coord1 && _y <= spr->coord2 && _x <= spr->coord4 && _y <= spr->coord3){
+
         if(_evt->type == SDL_MOUSEBUTTONDOWN)
         {
             if(_evt->button.button == SDL_BUTTON_LEFT){
                 SDL_Log("Mouse Button is pressed.");
             }
         }
-    }
+
 
 	//Click mouse izq
 

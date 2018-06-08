@@ -3,8 +3,10 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
+#include <iostream>
 
 #include "Load_Img.h"
+#include "SevenUp.h"
 
 using namespace std;
 
@@ -36,12 +38,18 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
+	     cout << "Inferior Izq: " << g_renderGL.spr2.coord1 << endl;
+         cout << "Superior Izq: " << g_renderGL.spr2.coord2 << endl;
+         cout << "Superior Der: " << g_renderGL.spr2.coord3 << endl;
+         cout << "Inferior Der: " << g_renderGL.spr2.coord4 << endl;
+         cout << endl;
 	}
 }
 
 ///Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
+    //if(_x >= g_renderGL.spr2.coord1 && _x >= g_renderGL.spr2.coord2 && _y <= g_renderGL.spr2.coord3 && _y >= g_renderGL.spr2.coord4){
 
         if(_evt->type == SDL_MOUSEBUTTONDOWN)
         {
@@ -49,7 +57,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
                 SDL_Log("Mouse Button is pressed.");
             }
         }
-
+   // }
 
 	//Click mouse izq
 

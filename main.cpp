@@ -7,13 +7,15 @@
 #include <sstream>
 
 #include "Load_Img.h"
+#include "Atlas.h"
 
 using namespace std;
+
+Atlas pruebas;
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
-
 //Inicializa SDL, crea ventana y lo liga a openGL
 bool init();
 //Manejador de teclado con posicion del mouse
@@ -51,11 +53,15 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
-
+void Prueba()
+{
+    //std::cout << "Hola";
+    pruebas.Read();
+}
 
 bool init()
 {
-
+    Prueba();
     ///Inicializamos la imagen
     Imagen::InitImg();
 

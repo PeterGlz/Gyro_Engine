@@ -7,6 +7,7 @@ class Atlas
     public:
         Atlas();
         virtual ~Atlas();
+        void Read();
 
     protected:
         float TopX;

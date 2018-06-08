@@ -38,10 +38,10 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
-	     cout << "Inferior Izq: " << g_renderGL.spr2.coord1 << endl;
-         cout << "Superior Izq: " << g_renderGL.spr2.coord2 << endl;
-         cout << "Superior Der: " << g_renderGL.spr2.coord3 << endl;
-         cout << "Inferior Der: " << g_renderGL.spr2.coord4 << endl;
+	     cout << "Inferior Izq: " << g_renderGL.spr.coord1 << endl;
+         cout << "Superior Izq: " << g_renderGL.spr.coord2 << endl;
+         cout << "Superior Der: " << g_renderGL.spr.coord3 << endl;
+         cout << "Inferior Der: " << g_renderGL.spr.coord4 << endl;
          cout << endl;
 	}
 }
@@ -53,8 +53,16 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
         if(_evt->type == SDL_MOUSEBUTTONDOWN)
         {
-            if(_evt->button.button == SDL_BUTTON_LEFT){
-                SDL_Log("Mouse Button is pressed.");
+            cout << _x << endl;
+            cout << _y << endl;
+            cout << endl;
+
+            if(_x >= g_renderGL.spr.coord1 && _y >= g_renderGL.spr.coord2)
+            {
+                if(_evt->button.button == SDL_BUTTON_LEFT){
+                    SDL_Log("Mouse Button is pressed.");
+                }
+
             }
         }
    // }

@@ -24,6 +24,7 @@
 					<Add option="-lSDL2" />
 					<Add option="-lSDL2_image" />
 					<Add option="-lSDL2_ttf" />
+					<Add option="-lwsock32" />
 					<Add directory="sdl/lib" />
 				</Linker>
 			</Target>

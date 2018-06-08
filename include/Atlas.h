@@ -9,6 +9,10 @@ class Atlas
         virtual ~Atlas();
 
     protected:
+        float TopX;
+        float TopY;
+        float Width;
+        float height;
 
     private:
 };

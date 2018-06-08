@@ -74,13 +74,15 @@
 		<Unit filename="include/Texto.h" />
 		<Unit filename="include/VectorMath.h" />
 		<Unit filename="include/deltaTime.h" />
+		<Unit filename="include/httpR.h" />
 		<Unit filename="include/primitivo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
-		<Unit filename="src/deltaTime.cpp" />
 		<Unit filename="src/SevenUp.cpp" />
 		<Unit filename="src/Texto.cpp" />
+		<Unit filename="src/deltaTime.cpp" />
+		<Unit filename="src/httpR.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

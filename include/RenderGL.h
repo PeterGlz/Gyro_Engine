@@ -39,6 +39,11 @@ float ww;
 
         Sprite spr;
         Sprite spr2;
+
+        float WorldSize;
+        float offsetMouseX;
+        float offsetMouseY;
+
 };
 
 extern RenderGL g_renderGL; //Singleton

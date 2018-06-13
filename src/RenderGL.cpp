@@ -32,7 +32,9 @@ void RenderGL::inicializar()
 	glLoadIdentity();
 
 	float aspect =(float)w / (float)h;
-	const float WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
+    WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
+    offsetMouseY = WorldSize;
+    offsetMouseX = (WorldSize * aspect);
 
 	if (w >= h)
 	{
@@ -89,20 +91,20 @@ void RenderGL::render()
     glColor3f(0.0f, 1.0f, 0.0f);
     glPointSize(5.0f);
     glBegin(GL_POINTS);
-    glVertex2f(0.0f, 0.0f);
+    glVertex2f(0, 0);
     glEnd();
     glEnable(GL_TEXTURE_2D);
 
     spr.Draw();
-    spr.SetRot(15);
+    spr.SetRot(0);
     spr.SetPos(0, 0);
     spr.SetScale(5, 5);
-    spr.SetPriority(0.3f);
+    spr.SetPriority(0.2f);
 
     spr2.Draw();
-    spr2.SetRot(-15);
+    spr2.SetRot(0);
     spr2.SetPos(-7, -5);
     spr2.SetScale(5, 5);
-    spr2.SetPriority(0.2f);
+    spr2.SetPriority(0.3f);
 }
 

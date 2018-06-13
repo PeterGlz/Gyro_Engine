@@ -72,10 +72,10 @@ void Sprite::Draw()
     glEnd();
     glPopMatrix();
 
-    coord1 = (posX - (scaX/2.0f)); ///Inferior Izquierda
-    coord2 = (posX + (scaX/2.0f)); ///Superior Îzquierda
-    coord3 = (posY + (scaY/2.0f)); ///Superior Derecha
-    coord4 = (posY - (scaY/2.0f)); ///Inferior Derecha
+    coord2 = (posX + (((img.image->w) / 500.0f) * scaX)); ///Inferior Izquierda
+    coord1 = (posX); ///Superior Îzquierda
+    coord4 = (posY + (((img.image->h) / 500.0f) * scaY)); ///Superior Derecha
+    coord3 = (posY); ///Inferior Derecha
 }
 
 void Sprite::Close()

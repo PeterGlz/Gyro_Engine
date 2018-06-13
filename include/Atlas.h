@@ -10,6 +10,7 @@ class Atlas
         void Read();
 
     protected:
+        char* nombre;
         float TopX;
         float TopY;
         float Width;

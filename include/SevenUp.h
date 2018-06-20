@@ -28,6 +28,7 @@ class Sprite
         void SetPriority(float z);
         void Draw();
         void Close();
+        bool MouseEve(float _x, float _y);
 
         float coord1;
         float coord2;

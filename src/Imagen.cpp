@@ -51,3 +51,5 @@ void Imagen::CloseImg()
     IMG_Quit();
 }
 
+
+

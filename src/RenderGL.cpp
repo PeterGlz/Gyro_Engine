@@ -108,3 +108,17 @@ void RenderGL::render()
     spr2.SetPriority(0.3f);
 }
 
+bool Sprite::MouseEve (float _x, float _y)
+{
+     ///Para agregar otra imagen a la que se le pueda dar click es necesario agregar otro IF con la variable de Sprite que se quiera usar en ese caso
+    if(_x >= coord1 && _x <=coord2 && _y  >= coord3 && _y <= coord4)
+    {
+        ///Aquí se detecta que boton del mouse es presionado
+            ///En esta parte se pone la acción que se desee ejecutar al momento de dar click
+            SDL_Log("Mouse Button is pressed.");
+            return true;
+
+
+    }
+    return false;
+}

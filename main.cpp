@@ -52,8 +52,15 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
             float y = _y/(float)SCREEN_HEIGHT * g_renderGL.offsetMouseY * 2 - g_renderGL.offsetMouseY;
             y = -y;
 
-            ///Para agregar otra imagen a la que se le pueda dar click es necesario agregar otro IF con la variable de Sprite que se quiera usar en ese caso
+            if(_evt->button.button == SDL_BUTTON_LEFT){
+                    g_renderGL.spr2.MouseEve(x, y);
+                     g_renderGL.spr.MouseEve(x, y);
+            }
 
+
+
+            ///Para agregar otra imagen a la que se le pueda dar click es necesario agregar otro IF con la variable de Sprite que se quiera usar en ese caso
+            /*
             if(x >= g_renderGL.spr2.coord1 && x <= g_renderGL.spr2.coord2 && y >= g_renderGL.spr2.coord3 && y <= g_renderGL.spr2.coord4)
             {
                 ///Aquí se detecta que boton del mouse es presionado
@@ -65,6 +72,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
                 }
 
             }
+            */
         }
    // }
 

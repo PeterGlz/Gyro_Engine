@@ -14,8 +14,10 @@ using namespace std;
 Atlas pruebas;
 
 //Dimensiones de la ventana
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+const int SCREEN_WIDTH = g_renderGL.screenW;
+const int SCREEN_HEIGHT = g_renderGL.screenH;
+
+
 //Inicializa SDL, crea ventana y lo liga a openGL
 bool init();
 //Manejador de teclado con posicion del mouse
@@ -64,7 +66,6 @@ bool init()
     Prueba();
     ///Inicializamos la imagen
     Imagen::InitImg();
-
 
 	///Initialization flag
 	bool success = true;

@@ -4,8 +4,9 @@
 #include "VectorMath.h"
 #include "SDL_ttf.h"
 
-#include "../Load_Img.h"
-#include "SevenUp.h"
+/*#include "../Load_Img.h"
+#include "SevenUp.h"*/
+#include "Atlas.h"
 
 class RenderGL
 {
@@ -14,6 +15,7 @@ class RenderGL
 		float clipAreaYTop;
 		float clipAreaXRightt;
 		float clipAreaYBottom;
+
 
 	public:
 		RenderGL();
@@ -36,6 +38,13 @@ class RenderGL
         TTF_Font *gFont = NULL; ///Fuente global
 		int h;
 		int w;
+
+		int screenH = 600;
+        int screenW = 800;
+
+        Atlas atl1;
+        Sprite gato;
+
 
 
 		double deltaTime;

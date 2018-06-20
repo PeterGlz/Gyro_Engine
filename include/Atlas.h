@@ -3,7 +3,10 @@
 #include <vector>
 #include <cstring>
 #include <iostream>
+#include "SevenUp.h"
+
 ///Pagina que se usara para crear el atlas https://www.leshylabs.com/apps/sstool/
+
 
 class Atlas
 {
@@ -11,6 +14,8 @@ class Atlas
         Atlas();
         virtual ~Atlas();
         void Read();
+        void Init7up(Sprite* fresca, int index);
+        void Load(const char* archivo);
 
     protected:
         char* nombre;
@@ -18,6 +23,7 @@ class Atlas
         float TopY;
         float Width;
         float height;
+        Imagen img;
 
 
     private:

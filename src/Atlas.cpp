@@ -21,6 +21,21 @@ Atlas::~Atlas()
     //dtor
 };
 
+void Atlas::Init7up(Sprite* fresca, int index)
+{
+    fresca->img = img;
+    fresca->uvX = TopX;
+    fresca->uvY = TopY;
+    fresca->uvXX = Width;
+    fresca->uvYY = height;
+}
+
+void Atlas::Load(const char* archivo)
+{
+    img.LoadImg(archivo);
+    img.InitOGL();
+}
+
 void Atlas::Read()
 {
 
@@ -48,22 +63,25 @@ void Atlas::Read()
                 else if(contador == 1)
                 {
                    TopX = atof(pch);
+                   TopX = TopX/g_renderGL.screenW;
                     tX.push_back(TopX);
                 }
                 else if(contador == 2)
                 {
                     TopY = atof(pch);
+                    TopY = TopY/g_renderGL.screenH;
                     tY.push_back(TopY);
                 }
                 else if(contador == 3)
                 {
                     Width = atof(pch);
-                    ///Width = Width / ->w;
+                    Width = Width/g_renderGL.screenW;
                     tW.push_back(Width);
                 }
                 else if(contador == 4)
                 {
                     height = atof(pch);
+                    height = height/g_renderGL.screenH;
                     tH.push_back(height);
                 }
                 contador++;
@@ -81,7 +99,7 @@ void Atlas::Read()
             cout << "TopX: " << tX[0] << endl;
             cout << "TopY: " << tY[0] << endl;
             cout << "Width: " << tW[0] << endl;
-            cout << "Height: " << tH[2] << endl;
+            cout << "Height: " << tH[0] << endl;
         myfile.close();
       }
 

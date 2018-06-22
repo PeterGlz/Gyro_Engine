@@ -69,14 +69,14 @@ void Sprite::Draw()
 
     glBegin(GL_QUADS);
     ///Dibuja coordenadas y escalas de los vertices
-    /*glTexCoord2f(uvXX, uvYY); glVertex3f(scaX, 0, 0);
+    glTexCoord2f(uvXX, uvYY); glVertex3f(scaX, 0, 0);
     glTexCoord2f(uvX, uvYY); glVertex3f(0, 0, 0);
     glTexCoord2f(uvX, uvY); glVertex3f(0, scaY, 0);
-    glTexCoord2f(uvXX, uvY); glVertex3f(scaX, scaY, 0);*/
-    glTexCoord2f(1, 1); glVertex3f(scaX, 0, 0);
+    glTexCoord2f(uvXX, uvY); glVertex3f(scaX, scaY, 0);
+    /*glTexCoord2f(1, 1); glVertex3f(scaX, 0, 0);
     glTexCoord2f(0, 1); glVertex3f(0, 0, 0);
     glTexCoord2f(0, 0); glVertex3f(0, scaY, 0);
-    glTexCoord2f(1, 0); glVertex3f(scaX, scaY, 0);
+    glTexCoord2f(1, 0); glVertex3f(scaX, scaY, 0);*/
     glEnd();
     glPopMatrix();
 }

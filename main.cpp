@@ -11,8 +11,6 @@
 
 using namespace std;
 
-Atlas pruebas;
-
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = g_renderGL.screenW;
 const int SCREEN_HEIGHT = g_renderGL.screenH;
@@ -58,7 +56,6 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 void Prueba()
 {
     //std::cout << "Hola";
-    pruebas.Read();
 }
 
 bool init()

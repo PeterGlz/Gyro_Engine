@@ -1,16 +1,12 @@
 #include "Atlas.h"
-//#include <iostream>
 #include <fstream>
-//#include <string.h>
 #include <stdio.h>
-//#include <cstring>
 #include <stdlib.h>
 #include <vector>
 #include "RenderGL.h"
 
-
 using namespace std;
-///Pagina que se usara para crear el atlas https://www.leshylabs.com/apps/sstool/
+
 Atlas::Atlas()
 {
     //ctor
@@ -24,25 +20,30 @@ Atlas::~Atlas()
 void Atlas::Init7up(Sprite* fresca, int index)
 {
     fresca->img = img;
-    fresca->uvX = TopX;
-    fresca->uvY = TopY;
-    fresca->uvXX = Width;
-    fresca->uvYY = height;
+    fresca->uvX = tX[index];
+    fresca->uvY = tY[index];
+    fresca->uvXX = tX[index]+tW[index];
+    fresca->uvYY = tY[index]+tH[index];
 }
 
 void Atlas::Load(const char* archivo)
 {
     img.LoadImg(archivo);
     img.InitOGL();
+    ww = (float)img.image->w;
+    hh = (float)img.image->h;
 }
 
-void Atlas::Read()
+void Atlas::Read(const char* textoA)
 {
-
-    ifstream myfile ("sprites.txt");
-
-      char* pch;
+    ifstream myfile (textoA);
+    char* pch;
     string line;
+    char* nombre;
+    float topX;
+    float topY;
+    float width;
+    float height;
 
       if (myfile.is_open())
       {
@@ -57,52 +58,38 @@ void Atlas::Read()
                 if(contador == 0)
                 {
                     nombre = pch;
-                    //string st = pch;
                     Nom.push_back(nombre);
                 }
                 else if(contador == 1)
                 {
-                   TopX = atof(pch);
-                   TopX = TopX/g_renderGL.screenW;
-                    tX.push_back(TopX);
+                   topX = atof(pch);
+                   topX = topX/ww;
+                    tX.push_back(topX);
                 }
                 else if(contador == 2)
                 {
-                    TopY = atof(pch);
-                    TopY = TopY/g_renderGL.screenH;
-                    tY.push_back(TopY);
+                    topY = atof(pch);
+                    topY = topY/hh;
+                    tY.push_back(topY);
                 }
                 else if(contador == 3)
                 {
-                    Width = atof(pch);
-                    Width = Width/g_renderGL.screenW;
-                    tW.push_back(Width);
+                    width = atof(pch);
+                    width = width/ww;
+                    tW.push_back(width);
                 }
                 else if(contador == 4)
                 {
                     height = atof(pch);
-                    height = height/g_renderGL.screenH;
+                    height = height/hh;
                     tH.push_back(height);
                 }
                 contador++;
                 pch = strtok (NULL, ",");
             }
-            /*cout << "\nSize : " << g1.size();
-            cout << "\nCapacity : " << g1.capacity();
-            cout << "\nMax_Size : " << g1.max_size();*/
-
-
             delete[] y;
-          //cout << line << '\n';
         }
-        cout << "Nombre: " << Nom[0] << endl;
-            cout << "TopX: " << tX[0] << endl;
-            cout << "TopY: " << tY[0] << endl;
-            cout << "Width: " << tW[0] << endl;
-            cout << "Height: " << tH[0] << endl;
         myfile.close();
       }
-
       else cout << "Unable to open file";
-
 }

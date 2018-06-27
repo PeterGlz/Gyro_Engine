@@ -1,14 +1,19 @@
 #include "SDL.h"
 #include "RenderGL.h"
+#include "Audio.h"
 #include <stdio.h>
 #include <string>
+
 #include <math.h>
 #include <iostream>
 #include <sstream>
-#include <iostream>
 #include "Atlas.h"
 
 using namespace std;
+
+#include "SDL_mixer.h"
+#include "Audio.h"
+
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = g_renderGL.screenW;
@@ -30,6 +35,8 @@ SDL_Window* gWindow = NULL;
 
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
+
+
 
 //------CORE ------------------------------------------------------------------------------------
 
@@ -76,13 +83,20 @@ bool init()
 	bool success = true;
 
 	///Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0)
 	{
 		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
 		success = false;
 	}
 	else
 	{
+
+	    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+        {
+            printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+            success = false;
+        }
+
 		///Indicamos que usaremos OPenGL
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -97,7 +111,7 @@ bool init()
         g_renderGL.gFont = TTF_OpenFont("Recursos/lazy.ttf", 15);
 
 		///Creamos Ventana
-		gWindow = SDL_CreateWindow("Toucan Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		gWindow = SDL_CreateWindow("Gyro Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 		if (gWindow == NULL)
 		{
 			printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
@@ -147,6 +161,10 @@ void close()
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
 	///Cerramos SDL
+
+
+
+	Mix_Quit();
 	SDL_Quit();
 }
 
@@ -181,17 +199,20 @@ int main(int argc, char* args[])
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
-
-
 				if (e.type == SDL_QUIT) ///Salir
 				{
+
 					GameLoop = true;
 				}
 				else if (e.type == SDL_TEXTINPUT) ///Evento de teclado
 				{
+
 					int x = 0, y = 0;
 					SDL_GetMouseState(&x, &y);
 					handleKeys(e.text.text[0], x, y);
+
+
+
 				}
 				else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
 				{
@@ -199,7 +220,14 @@ int main(int argc, char* args[])
 					int x = 0, y = 0;
 					SDL_GetMouseState(&x, &y);
 					handleMouse(&e, x, y);
+
+
+
 				}
+
+
+
+
 			}
 
 			///Update
@@ -210,6 +238,7 @@ int main(int argc, char* args[])
 			///Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);
 			tiempoA = tiempoB;
+
 		}
 
 		///Desactivamos detectar teclado

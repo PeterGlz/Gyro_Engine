@@ -10,7 +10,6 @@ httpR::~httpR()
     //dtor
 }
 
-///En esta funcion obtenemos el url del servidor que utilizaremos
 void httpR::mParseUrl(char *mUrl, string &serverName, string &filepath, string &filename)
 {
     string::size_type n;
@@ -39,7 +38,6 @@ void httpR::mParseUrl(char *mUrl, string &serverName, string &filepath, string &
     }
 }
 
-///Aqui se ejecuta la conexion con el servidor
 SOCKET httpR::connectToServer(char *szServerName, WORD portNum)
 {
     struct hostent *hp;
@@ -78,7 +76,6 @@ SOCKET httpR::connectToServer(char *szServerName, WORD portNum)
     return conn;
 }
 
-///Regresa el tamaño de la cabecera de la pagina
 int httpR::getHeaderLength(char *content)
 {
     const char *srchStr1 = "\r\n\r\n", *srchStr2 = "\n\r\n\r";
@@ -104,7 +101,6 @@ int httpR::getHeaderLength(char *content)
     return ofset;
 }
 
-///Regresa todo el contenido de la pagina
 char* httpR::readUrl2(char *szUrl, long &bytesReturnedOut, char **headerOut)
 {
     const int bufSize = 512;

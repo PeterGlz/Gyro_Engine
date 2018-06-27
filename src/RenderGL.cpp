@@ -32,7 +32,9 @@ void RenderGL::inicializar()
 	glLoadIdentity();
 
 	float aspect =(float)w / (float)h;
-	const float WorldSize= 30.0f; ///El mundo de opengl es de -10 a 10
+    WorldSize= 10.0f; ///El mundo de opengl es de -10 a 10
+    offsetMouseY = WorldSize;
+    offsetMouseX = (WorldSize * aspect);
 
 	if (w >= h)
 	{
@@ -51,12 +53,9 @@ void RenderGL::inicializar()
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
-	//Model view Matrix
+	///Model view Matrix
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-	//Initialize clear color
-	glClearColor(0.f, 0.f, 0.f, 1.f);
 }
 
 void RenderGL::liberar()
@@ -80,7 +79,19 @@ void RenderGL::render()
     glVertex2f(0.0f, 0.0f);
     glEnd();
     glEnable(GL_TEXTURE_2D);
-
-
 }
 
+bool Sprite::MouseEve (float _x, float _y)
+{
+     ///Para agregar otra imagen a la que se le pueda dar click es necesario agregar otro IF con la variable de Sprite que se quiera usar en ese caso
+    if(_x >= coord1 && _x <=coord2 && _y  >= coord3 && _y <= coord4)
+    {
+        ///Aquí se detecta que boton del mouse es presionado
+            ///En esta parte se pone la acción que se desee ejecutar al momento de dar click
+            SDL_Log("Mouse Button is pressed.");
+            return true;
+
+
+    }
+    return false;
+}

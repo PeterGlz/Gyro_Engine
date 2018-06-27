@@ -5,8 +5,10 @@
 #include <math.h>
 #include <iostream>
 #include <sstream>
+#include <iostream>
 
 #include "Load_Img.h"
+#include "SevenUp.h"
 
 using namespace std;
 
@@ -38,16 +40,25 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
+
 	}
 }
 
 ///Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
-	//Click mouse izq
-	if (_evt->button.button == SDL_BUTTON_LEFT)
-	{
-	}
+    if(_evt->type == SDL_MOUSEBUTTONDOWN)
+    {
+
+        float x = _x/(float)SCREEN_WIDTH * g_renderGL.offsetMouseX * 2 - g_renderGL.offsetMouseX;
+        float y = _y/(float)SCREEN_HEIGHT * g_renderGL.offsetMouseY * 2 - g_renderGL.offsetMouseY;
+        y = -y;
+
+        if(_evt->button.button == SDL_BUTTON_LEFT)
+        {
+        }
+    }
+
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
@@ -181,7 +192,7 @@ int main(int argc, char* args[])
 					SDL_GetMouseState(&x, &y);
 					handleKeys(e.text.text[0], x, y);
 				}
-				else if (e.type = SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
+				else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
 				{
 					//obtenemos mouse
 					int x = 0, y = 0;

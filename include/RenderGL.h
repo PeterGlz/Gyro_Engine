@@ -1,9 +1,7 @@
 #ifndef RENDERGL_H
 #define RENDERGL_H
-
 #include "VectorMath.h"
 #include "SDL_ttf.h"
-
 #include "../Load_Img.h"
 #include "SevenUp.h"
 
@@ -37,8 +35,14 @@ class RenderGL
 		int h;
 		int w;
 
-
 		double deltaTime;
+
+        float hh;
+		float ww;
+
+        float WorldSize;
+        float offsetMouseX;
+        float offsetMouseY;
 };
 
 extern RenderGL g_renderGL; //Singleton

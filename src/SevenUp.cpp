@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include "SevenUp.h"
 #include "RenderGL.h"
+#include "../Load_Img.h"
 
 Sprite::Sprite()
 {
@@ -17,7 +18,6 @@ Sprite::Sprite()
 
 Sprite::~Sprite()
 {
-
 };
 
 ///Definimos la imagen a cargar
@@ -65,12 +65,17 @@ void Sprite::Draw()
 
     glBegin(GL_QUADS);
     ///Dibuja coordenadas y escalas de los vertices
-    glTexCoord2f(1, 1); glVertex3f(scaX, 0, 0);
+    glTexCoord2f(1, 1); glVertex3f(((img.image->w) / 500.0f) * scaX, 0, 0);
     glTexCoord2f(0, 1); glVertex3f(0, 0, 0);
-    glTexCoord2f(0, 0); glVertex3f(0, scaY, 0);
-    glTexCoord2f(1, 0); glVertex3f(scaX, scaY, 0);
+    glTexCoord2f(0, 0); glVertex3f(0,((img.image->h) / 500.0f) * scaY, 0);
+    glTexCoord2f(1, 0); glVertex3f(((img.image->w) / 500.0f) * scaX, ((img.image->h) / 500.0f) * scaY, 0);
     glEnd();
     glPopMatrix();
+
+    coord2 = (posX + (((img.image->w) / 500.0f) * scaX)); ///Inferior Izquierda
+    coord1 = (posX); ///Superior Îzquierda
+    coord4 = (posY + (((img.image->h) / 500.0f) * scaY)); ///Superior Derecha
+    coord3 = (posY); ///Inferior Derecha
 }
 
 void Sprite::Close()

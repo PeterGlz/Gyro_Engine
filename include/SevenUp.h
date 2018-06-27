@@ -28,6 +28,12 @@ class Sprite
         void SetPriority(float z);
         void Draw();
         void Close();
+        bool MouseEve(float _x, float _y);
+
+        float coord1;
+        float coord2;
+        float coord3;
+        float coord4;
 
     private:
         float rotz;
@@ -38,6 +44,5 @@ class Sprite
         float posY;
         Imagen img;
 };
-
 
 #endif // SEVENUP_H_INCLUDED

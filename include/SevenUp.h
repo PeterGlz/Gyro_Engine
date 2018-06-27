@@ -43,6 +43,13 @@ class Sprite
         float posX;
         float posY;
         Imagen img;
+
+        float uvX;
+        float uvXX;
+        float uvY;
+        float uvYY;
+
+        friend class Atlas;
 };
 
 #endif // SEVENUP_H_INCLUDED

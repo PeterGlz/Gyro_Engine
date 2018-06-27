@@ -9,6 +9,7 @@ RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
+    screenW = 800;
 }
 
 RenderGL::~RenderGL()
@@ -56,6 +57,9 @@ void RenderGL::inicializar()
 	///Model view Matrix
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
+	//Initialize clear color
+	glClearColor(0.f, 0.f, 0.f, 1.f);
 }
 
 void RenderGL::liberar()
@@ -90,7 +94,6 @@ bool Sprite::MouseEve (float _x, float _y)
             ///En esta parte se pone la acción que se desee ejecutar al momento de dar click
             SDL_Log("Mouse Button is pressed.");
             return true;
-
 
     }
     return false;

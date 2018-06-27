@@ -70,6 +70,7 @@
 			<Add directory="C:/Users/David/Desktop/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Load_Img.h" />
+		<Unit filename="include/Atlas.h" />
 		<Unit filename="include/RenderGL.h" />
 		<Unit filename="include/SevenUp.h" />
 		<Unit filename="include/Texto.h" />
@@ -78,6 +79,7 @@
 		<Unit filename="include/httpR.h" />
 		<Unit filename="include/primitivo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Atlas.cpp" />
 		<Unit filename="src/Imagen.cpp" />
 		<Unit filename="src/RenderGL.cpp" />
 		<Unit filename="src/SevenUp.cpp" />

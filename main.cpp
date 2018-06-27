@@ -6,15 +6,14 @@
 #include <iostream>
 #include <sstream>
 #include <iostream>
-
-#include "Load_Img.h"
-#include "SevenUp.h"
+#include "Atlas.h"
 
 using namespace std;
 
 //Dimensiones de la ventana
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+const int SCREEN_WIDTH = g_renderGL.screenW;
+const int SCREEN_HEIGHT = g_renderGL.screenH;
+
 
 //Inicializa SDL, crea ventana y lo liga a openGL
 bool init();
@@ -62,14 +61,16 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
-
+void Prueba()
+{
+    //std::cout << "Hola";
+}
 
 bool init()
 {
-
+    Prueba();
     ///Inicializamos la imagen
     Imagen::InitImg();
-
 
 	///Initialization flag
 	bool success = true;

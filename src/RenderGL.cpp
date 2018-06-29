@@ -60,6 +60,14 @@ void RenderGL::inicializar()
 
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
+
+
+
+    atl1.Load("gatoDavid.png");
+    atl1.Read("sprites.txt");
+    atl1.Init7up(&gato, 0);
+
+
 }
 
 void RenderGL::liberar()
@@ -83,6 +91,12 @@ void RenderGL::render()
     glVertex2f(0.0f, 0.0f);
     glEnd();
     glEnable(GL_TEXTURE_2D);
+
+    gato.SetRot(0);
+    gato.SetPos(0, 0);
+    gato.SetScale(10, 10);
+    gato.SetPriority(0.1f);
+    gato.Draw();
 }
 
 bool Sprite::MouseEve (float _x, float _y)

@@ -30,7 +30,6 @@ class Atlas
     protected:
         Imagen img;
 
-
     private:
         std::vector <std::string> Nom;
         std::vector <float> tX;
@@ -40,6 +39,8 @@ class Atlas
 
         float hh;
         float ww;
+
+
 };
 
 #endif // ATLAS_H

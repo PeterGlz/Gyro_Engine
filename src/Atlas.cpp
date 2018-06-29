@@ -62,8 +62,8 @@ void Atlas::Read(const char* textoA)
                 }
                 else if(contador == 1)
                 {
-                   topX = atof(pch);
-                   topX = topX/ww;
+                    topX = atof(pch);
+                    topX = topX/ww;
                     tX.push_back(topX);
                 }
                 else if(contador == 2)

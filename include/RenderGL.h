@@ -49,6 +49,9 @@ class RenderGL
         float WorldSize;
         float offsetMouseX;
         float offsetMouseY;
+
+        Atlas atl1;
+        Sprite gato;
 };
 
 extern RenderGL g_renderGL; //Singleton

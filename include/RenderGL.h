@@ -51,7 +51,7 @@ class RenderGL
         float offsetMouseY;
 
         Atlas atl1;
-        Sprite gato;
+        Sprite poke;
 };
 
 extern RenderGL g_renderGL; //Singleton

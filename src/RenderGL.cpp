@@ -61,13 +61,10 @@ void RenderGL::inicializar()
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
-
-
-    atl1.Load("gatoDavid.png");
-    atl1.Read("sprites.txt");
-    atl1.Init7up(&gato, 0);
-
-
+    atl1.Load("pokesprites.png");
+    atl1.Read("pokesprites.txt");
+    atl1.Init7up(&poke, 1);
+    //poke.Load("pokesprites.png");
 }
 
 void RenderGL::liberar()
@@ -92,11 +89,11 @@ void RenderGL::render()
     glEnd();
     glEnable(GL_TEXTURE_2D);
 
-    gato.SetRot(0);
-    gato.SetPos(0, 0);
-    gato.SetScale(10, 10);
-    gato.SetPriority(0.1f);
-    gato.Draw();
+    poke.SetRot(0);
+    poke.SetPos(0, 0);
+    poke.SetScale(10, 10);
+    poke.SetPriority(0.1f);
+    poke.Draw();
 }
 
 bool Sprite::MouseEve (float _x, float _y)

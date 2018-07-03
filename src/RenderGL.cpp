@@ -9,7 +9,7 @@ RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
-    screenW = 800;
+    //screenW = 800;
 }
 
 RenderGL::~RenderGL()
@@ -61,9 +61,12 @@ void RenderGL::inicializar()
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
+	protaPosX = 0;
+	protaPosY = -8;
+
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
-    atl1.Init7up(&poke, 1);
+    atl1.Init7up(&poke, 22);
     //poke.Load("pokesprites.png");
 }
 
@@ -81,17 +84,17 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    glDisable(GL_TEXTURE_2D);
+    /*glDisable(GL_TEXTURE_2D);
     glColor3f(0.0f, 1.0f, 0.0f);
     glPointSize(5.0f);
     glBegin(GL_POINTS);
     glVertex2f(0.0f, 0.0f);
     glEnd();
-    glEnable(GL_TEXTURE_2D);
+    glEnable(GL_TEXTURE_2D);*/
 
     poke.SetRot(0);
-    poke.SetPos(0, 0);
-    poke.SetScale(10, 10);
+    poke.SetPos(protaPosX, protaPosY);
+    poke.SetScale(1, 1);
     poke.SetPriority(0.1f);
     poke.Draw();
 }

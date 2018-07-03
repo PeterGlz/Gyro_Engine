@@ -52,6 +52,9 @@ class RenderGL
 
         Atlas atl1;
         Sprite poke;
+
+        int protaPosX;
+        int protaPosY;
 };
 
 extern RenderGL g_renderGL; //Singleton

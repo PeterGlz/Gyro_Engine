@@ -45,14 +45,14 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
-	    if(g_renderGL.protaPosX >= -5)
+	    if(g_renderGL.protaPosX >= -6)
         {
             g_renderGL.protaPosX--;
         }
 	}
 	if (_key == 'd')
 	{
-	    if(g_renderGL.protaPosX <= 5)
+	    if(g_renderGL.protaPosX <= 4)
         {
             g_renderGL.protaPosX++;
         }

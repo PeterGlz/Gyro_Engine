@@ -52,6 +52,13 @@ class RenderGL
 
         Atlas atl1;
         Sprite poke;
+        Sprite lick;
+        Sprite geng;
+        Sprite nine;
+        Sprite chori;
+        Sprite onix;
+
+        Sprite fondo;
 
         int protaPosX;
         int protaPosY;

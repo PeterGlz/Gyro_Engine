@@ -71,6 +71,7 @@ class Imagen
         unsigned int m_ObjetoTextura;
 
     private:
+        //Imagen fondo;
 };
 
 #endif // LOAD_IMG_H_INCLUDED

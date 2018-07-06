@@ -63,7 +63,7 @@ void Sprite::Draw()
     glTranslatef(posX, posY, priZ);
 
     ///Se dibuja la textura
-    glColor3f(1.0f, 1.0f, 1.0f);
+    //glColor3f(1.0f, 1.0f, 1.0f);
     glBindTexture(GL_TEXTURE_2D, img.m_ObjetoTextura);
     glRotatef(rotz, 0, 0, 1);
 

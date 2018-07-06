@@ -19,11 +19,16 @@ RenderGL::~RenderGL()
 void RenderGL::inicializar()
 {
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_CLAMP);
+    glDepthMask(true);
+    glDepthFunc(GL_LEQUAL);
+    glDepthRange(0, 1);
+    glClearDepth(1.0);
     ///Indicamos que hay texturas
     glEnable(GL_TEXTURE_2D);
     ///Activamos transparencias
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
 	GLenum error = GL_NO_ERROR;
 	//Para obtener error: error = glGetError();
@@ -61,13 +66,22 @@ void RenderGL::inicializar()
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
-	protaPosX = 0;
+	protaPosX = -1;
 	protaPosY = -8;
+
+	//fondo.LoadImg("fondo.jpg");
+	//fondo.InitOGL();
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
     atl1.Init7up(&poke, 22);
+    atl1.Init7up(&lick, 9);
+    atl1.Init7up(&geng, 5);
+    atl1.Init7up(&nine, 15);
+    atl1.Init7up(&chori, 1);
+    atl1.Init7up(&onix, 17);
     //poke.Load("pokesprites.png");
+    fondo.Load("fondo.jpg");
 }
 
 void RenderGL::liberar()
@@ -92,11 +106,76 @@ void RenderGL::render()
     glEnd();
     glEnable(GL_TEXTURE_2D);*/
 
+    fondo.SetRot(0);
+    fondo.SetPos(-13.34, -10);
+    fondo.SetScale(27, 20);
+    fondo.SetPriority(0.0f);
+    fondo.Draw();
+
     poke.SetRot(0);
     poke.SetPos(protaPosX, protaPosY);
     poke.SetScale(1, 1);
     poke.SetPriority(0.1f);
     poke.Draw();
+
+    for(int i=-7; i<6; i++)
+    {
+        if(i%2!=0)
+        {
+            lick.SetRot(0);
+            lick.SetPos(i, 0);
+            lick.SetScale(1, 1);
+            lick.SetPriority(0.1f);
+            lick.Draw();
+        }
+    }
+    for(int i=-7; i<6; i++)
+    {
+        if(i%2!=0)
+        {
+            geng.SetRot(0);
+            geng.SetPos(i, 2);
+            geng.SetScale(1, 1);
+            geng.SetPriority(0.1f);
+            geng.Draw();
+        }
+    }
+    for(int i=-7; i<6; i++)
+    {
+        if(i%2!=0)
+        {
+            nine.SetRot(0);
+            nine.SetPos(i, 4);
+            nine.SetScale(1, 1);
+            nine.SetPriority(0.1f);
+            nine.Draw();
+        }
+    }
+    for(int i=-7; i<6; i++)
+    {
+        if(i%2!=0)
+        {
+            chori.SetRot(0);
+            chori.SetPos(i, 6);
+            chori.SetScale(1, 1);
+            chori.SetPriority(0.1f);
+            chori.Draw();
+        }
+    }
+    for(int i=-7; i<6; i++)
+    {
+        if(i%2!=0)
+        {
+            onix.SetRot(0);
+            onix.SetPos(i, 8);
+            onix.SetScale(1, 1);
+            onix.SetPriority(0.1f);
+            onix.Draw();
+        }
+    }
+
+
+
 }
 
 bool Sprite::MouseEve (float _x, float _y)

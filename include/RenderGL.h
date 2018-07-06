@@ -57,6 +57,7 @@ class RenderGL
         Sprite nine;
         Sprite chori;
         Sprite onix;
+        Sprite bola;
 
         Sprite fondo;
 

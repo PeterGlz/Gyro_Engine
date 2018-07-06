@@ -74,12 +74,13 @@ void RenderGL::inicializar()
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
-    atl1.Init7up(&poke, 22);
-    atl1.Init7up(&lick, 9);
-    atl1.Init7up(&geng, 5);
-    atl1.Init7up(&nine, 15);
-    atl1.Init7up(&chori, 1);
-    atl1.Init7up(&onix, 17);
+    atl1.Init7up(&poke, 21);
+    atl1.Init7up(&lick, 8);
+    atl1.Init7up(&geng, 4);
+    atl1.Init7up(&nine, 14);
+    atl1.Init7up(&chori, 0);
+    atl1.Init7up(&onix, 16);
+    atl1.Init7up(&bola, 18);
     //poke.Load("pokesprites.png");
     fondo.Load("fondo.jpg");
 }
@@ -117,6 +118,12 @@ void RenderGL::render()
     poke.SetScale(1, 1);
     poke.SetPriority(0.1f);
     poke.Draw();
+
+    bola.SetRot(0);
+    bola.SetPos(protaPosX, protaPosY+1);
+    bola.SetScale(0.5f, 0.5f);
+    bola.SetPriority(0.1f);
+    bola.Draw();
 
     for(int i=-7; i<6; i++)
     {

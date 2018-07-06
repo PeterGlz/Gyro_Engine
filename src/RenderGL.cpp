@@ -120,7 +120,7 @@ void RenderGL::render()
     poke.Draw();
 
     bola.SetRot(0);
-    bola.SetPos(protaPosX, protaPosY+1);
+    bola.SetPos(protaPosX+0.25, protaPosY+1);
     bola.SetScale(0.5f, 0.5f);
     bola.SetPriority(0.1f);
     bola.Draw();

@@ -5,11 +5,18 @@
 #include <iostream>
 #include "SevenUp.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <cmath>
+
 RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
     //screenW = 800;
+
 }
 
 RenderGL::~RenderGL()
@@ -42,6 +49,8 @@ void RenderGL::inicializar()
     offsetMouseY = WorldSize;
     offsetMouseX = (WorldSize * aspect);
 
+    contador = 2;
+
 	if (w >= h)
 	{
 		clipAreaXLeft=-WorldSize*aspect;
@@ -69,19 +78,28 @@ void RenderGL::inicializar()
 	protaPosX = -1;
 	protaPosY = -8;
 
-	//fondo.LoadImg("fondo.jpg");
-	//fondo.InitOGL();
+	contador -= 0.07;
+    if(contador <= 0)
+    {
+        contador = 2;
+    }
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
-    atl1.Init7up(&poke, 21);
+    if(contador > 1)
+    {
+        atl1.Init7up(&poke, 21);
+    }
+    else if(contador <= 1)
+    {
+        atl1.Init7up(&poke, 22);
+    }
     atl1.Init7up(&lick, 8);
     atl1.Init7up(&geng, 4);
     atl1.Init7up(&nine, 14);
     atl1.Init7up(&chori, 0);
     atl1.Init7up(&onix, 16);
     atl1.Init7up(&bola, 18);
-    //poke.Load("pokesprites.png");
     fondo.Load("fondo.jpg");
 }
 
@@ -91,6 +109,7 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
+
 }
 
 void RenderGL::render()
@@ -180,9 +199,6 @@ void RenderGL::render()
             onix.Draw();
         }
     }
-
-
-
 }
 
 bool Sprite::MouseEve (float _x, float _y)

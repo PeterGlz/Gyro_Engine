@@ -63,6 +63,8 @@ class RenderGL
 
         int protaPosX;
         int protaPosY;
+
+        float contador;
 };
 
 extern RenderGL g_renderGL; //Singleton

@@ -58,16 +58,26 @@ class RenderGL
         Sprite chori;
         Sprite onix;
         Sprite bola;
+        Sprite poke2;
+        Sprite lick2;
+        Sprite geng2;
+        Sprite nine2;
+        Sprite chori2;
+        Sprite onix2;
+        Sprite bola2;
 
         Sprite fondo;
 
         int protaPosX;
         int protaPosY;
-
         int balaPosX;
         int balaPosY;
 
+        bool disparo;
+
         float contador;
+        float delay;
+        float delayA;
 };
 
 extern RenderGL g_renderGL; //Singleton

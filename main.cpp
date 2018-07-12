@@ -57,6 +57,10 @@ void handleKeys(unsigned char _key, int _x, int _y)
             g_renderGL.protaPosX++;
         }
 	}
+	if(_key == 'k')
+    {
+        g_renderGL.disparo = true;
+    }
 }
 
 ///Mouse

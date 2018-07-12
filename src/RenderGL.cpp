@@ -77,25 +77,27 @@ void RenderGL::inicializar()
 
 	protaPosX = -1;
 	protaPosY = -8;
-	balaPosX = -5;
-	balaPosX = -8;
+	delay = 1;
+	delayA = 1;
+	balaPosX = protaPosX;
+	balaPosY = protaPosY;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
-    if(contador > 1)
-    {
-        atl1.Init7up(&poke, 21);
-    }
-    else if(contador <= 1)
-    {
-        atl1.Init7up(&poke, 22);
-    }
+    atl1.Init7up(&poke, 21);
     atl1.Init7up(&lick, 8);
     atl1.Init7up(&geng, 4);
     atl1.Init7up(&nine, 14);
     atl1.Init7up(&chori, 0);
     atl1.Init7up(&onix, 16);
     atl1.Init7up(&bola, 18);
+    atl1.Init7up(&poke2, 22);
+    atl1.Init7up(&lick2, 9);
+    atl1.Init7up(&geng2, 5);
+    atl1.Init7up(&nine2, 15);
+    atl1.Init7up(&chori2, 1);
+    atl1.Init7up(&onix2, 17);
+    atl1.Init7up(&bola2, 19);
     fondo.Load("fondo.jpg");
 }
 
@@ -105,17 +107,15 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
-
-}
-
-void RenderGL::render()
-{
-
     contador -= 0.07;
     if(contador <= 0)
     {
         contador = 2;
     }
+}
+
+void RenderGL::render()
+{
 	///Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
@@ -134,72 +134,152 @@ void RenderGL::render()
     fondo.SetPriority(0.0f);
     fondo.Draw();
 
-    poke.SetRot(0);
-    poke.SetPos(protaPosX, protaPosY);
-    poke.SetScale(1, 1);
-    poke.SetPriority(0.1f);
-    poke.Draw();
+    if(contador > 1)
+    {
+        poke.SetRot(0);
+        poke.SetPos(protaPosX, protaPosY);
+        poke.SetScale(1, 1);
+        poke.SetPriority(0.1f);
+        poke.Draw();
+    }
+    else if(contador <= 1)
+    {
+        poke2.SetRot(0);
+        poke2.SetPos(protaPosX, protaPosY);
+        poke2.SetScale(1, 1);
+        poke2.SetPriority(0.1f);
+        poke2.Draw();
+    }
 
     bola.SetRot(0);
-    //bola.SetPos(protaPosX+0.25, protaPosY+1);
-    bola.SetPos(balaPosX, balaPosY);
+    bola.SetPos(protaPosX, balaPosY);
     bola.SetScale(0.5f, 0.5f);
-    bola.SetPriority(0.1f);
+    bola.SetPriority(0.2f);
     bola.Draw();
+
+    if(disparo == true)
+    {
+        delay -= 0.18;
+        if (delay <= 0)
+        {
+            balaPosY++;
+            delay = delayA;
+        }
+        if(balaPosY >= 10)
+        {
+            disparo = false;
+            balaPosY = protaPosY;
+        }
+    }
 
     for(int i=-7; i<6; i++)
     {
         if(i%2!=0)
         {
-            lick.SetRot(0);
-            lick.SetPos(i, 0);
-            lick.SetScale(1, 1);
-            lick.SetPriority(0.1f);
-            lick.Draw();
+            if(contador > 1)
+            {
+                lick.SetRot(0);
+                lick.SetPos(i, 0);
+                lick.SetScale(1, 1);
+                lick.SetPriority(0.1f);
+                lick.Draw();
+            }
+            else if(contador <= 1)
+            {
+                lick2.SetRot(0);
+                lick2.SetPos(i, 0);
+                lick2.SetScale(1, 1);
+                lick2.SetPriority(0.1f);
+                lick2.Draw();
+            }
         }
     }
     for(int i=-7; i<6; i++)
     {
         if(i%2!=0)
         {
-            geng.SetRot(0);
-            geng.SetPos(i, 2);
-            geng.SetScale(1, 1);
-            geng.SetPriority(0.1f);
-            geng.Draw();
+            if(contador > 1)
+            {
+                geng.SetRot(0);
+                geng.SetPos(i, 2);
+                geng.SetScale(1, 1);
+                geng.SetPriority(0.1f);
+                geng.Draw();
+            }
+            else if(contador <= 1)
+            {
+                geng2.SetRot(0);
+                geng2.SetPos(i, 2);
+                geng2.SetScale(1, 1);
+                geng2.SetPriority(0.1f);
+                geng2.Draw();
+            }
         }
     }
     for(int i=-7; i<6; i++)
     {
         if(i%2!=0)
         {
-            nine.SetRot(0);
-            nine.SetPos(i, 4);
-            nine.SetScale(1, 1);
-            nine.SetPriority(0.1f);
-            nine.Draw();
+            if(contador > 1)
+            {
+                nine.SetRot(0);
+                nine.SetPos(i, 4);
+                nine.SetScale(1, 1);
+                nine.SetPriority(0.1f);
+                nine.Draw();
+            }
+            else if(contador <= 1)
+            {
+                nine2.SetRot(0);
+                nine2.SetPos(i, 4);
+                nine2.SetScale(1, 1);
+                nine2.SetPriority(0.1f);
+                nine2.Draw();
+            }
         }
     }
     for(int i=-7; i<6; i++)
     {
         if(i%2!=0)
         {
-            chori.SetRot(0);
-            chori.SetPos(i, 6);
-            chori.SetScale(1, 1);
-            chori.SetPriority(0.1f);
-            chori.Draw();
+            if(contador > 1)
+            {
+                chori.SetRot(0);
+                chori.SetPos(i, 6);
+                chori.SetScale(1, 1);
+                chori.SetPriority(0.1f);
+                chori.Draw();
+            }
+            else if(contador <= 1)
+            {
+                chori2.SetRot(0);
+                chori2.SetPos(i, 6);
+                chori2.SetScale(1, 1);
+                chori2.SetPriority(0.1f);
+                chori2.Draw();
+            }
         }
     }
     for(int i=-7; i<6; i++)
     {
         if(i%2!=0)
         {
-            onix.SetRot(0);
-            onix.SetPos(i, 8);
-            onix.SetScale(1, 1);
-            onix.SetPriority(0.1f);
-            onix.Draw();
+            if(contador > 1)
+            {
+                onix.SetRot(0);
+                onix.SetPos(i, 8);
+                onix.SetScale(1, 1);
+                onix.SetPriority(0.1f);
+                onix.Draw();
+            }
+            else if(contador <= 1)
+            {
+                onix2.SetRot(0);
+                onix2.SetPos(i, 8);
+                onix2.SetScale(1, 1);
+                onix2.SetPriority(0.1f);
+                onix2.Draw();
+            }
         }
     }
 }

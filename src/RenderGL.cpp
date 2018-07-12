@@ -77,12 +77,8 @@ void RenderGL::inicializar()
 
 	protaPosX = -1;
 	protaPosY = -8;
-
-	contador -= 0.07;
-    if(contador <= 0)
-    {
-        contador = 2;
-    }
+	balaPosX = -5;
+	balaPosX = -8;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
@@ -114,6 +110,12 @@ void RenderGL::update()
 
 void RenderGL::render()
 {
+
+    contador -= 0.07;
+    if(contador <= 0)
+    {
+        contador = 2;
+    }
 	///Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
@@ -139,7 +141,8 @@ void RenderGL::render()
     poke.Draw();
 
     bola.SetRot(0);
-    bola.SetPos(protaPosX+0.25, protaPosY+1);
+    //bola.SetPos(protaPosX+0.25, protaPosY+1);
+    bola.SetPos(balaPosX, balaPosY);
     bola.SetScale(0.5f, 0.5f);
     bola.SetPriority(0.1f);
     bola.Draw();

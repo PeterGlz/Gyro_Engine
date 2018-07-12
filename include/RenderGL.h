@@ -64,6 +64,9 @@ class RenderGL
         int protaPosX;
         int protaPosY;
 
+        int balaPosX;
+        int balaPosY;
+
         float contador;
 };
 

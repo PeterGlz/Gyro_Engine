@@ -120,14 +120,6 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-    /*glDisable(GL_TEXTURE_2D);
-    glColor3f(0.0f, 1.0f, 0.0f);
-    glPointSize(5.0f);
-    glBegin(GL_POINTS);
-    glVertex2f(0.0f, 0.0f);
-    glEnd();
-    glEnable(GL_TEXTURE_2D);*/
-
     fondo.SetRot(0);
     fondo.SetPos(-13.34, -10);
     fondo.SetScale(27, 20);

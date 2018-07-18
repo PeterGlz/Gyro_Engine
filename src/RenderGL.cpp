@@ -79,8 +79,8 @@ void RenderGL::inicializar()
 	protaPosY = -8;
 	delay = 1;
 	delayA = 1;
-	balaPosX = protaPosX;
-	balaPosY = protaPosY;
+	balaPosX;
+	balaPosY;
 
 	fila1 = 0;
 	fila2 = 2;
@@ -149,12 +149,6 @@ void RenderGL::render()
         poke2.Draw();
     }
 
-    bola.SetRot(0);
-    bola.SetPos(protaPosX, balaPosY);
-    bola.SetScale(0.5f, 0.5f);
-    bola.SetPriority(0.2f);
-    bola.Draw();
-
     if(disparo == true)
     {
         delay -= 0.18;
@@ -168,6 +162,12 @@ void RenderGL::render()
             disparo = false;
             balaPosY = protaPosY;
         }
+
+        bola.SetRot(0);
+        bola.SetPos(protaPosX+0.2, balaPosY+1);
+        bola.SetScale(0.5f, 0.5f);
+        bola.SetPriority(0.2f);
+        bola.Draw();
     }
 
     for(int i=-7; i<6; i++)
@@ -176,7 +176,6 @@ void RenderGL::render()
         {
             if(contador > 1)
             {
-                int algo = 1;
                 lick.SetRot(0);
                 lick.SetPos(i, fila1);
                 lick.SetScale(1, 1);
@@ -185,7 +184,6 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
-                    algo++;
                 }
                 else
                 {

@@ -82,6 +82,12 @@ void RenderGL::inicializar()
 	balaPosX = protaPosX;
 	balaPosY = protaPosY;
 
+	fila1 = 0;
+	fila2 = 2;
+	fila3 = 4;
+	fila4 = 6;
+	fila5 = 8;
+
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
     atl1.Init7up(&poke, 21);
@@ -170,19 +176,37 @@ void RenderGL::render()
         {
             if(contador > 1)
             {
+                int algo = 1;
                 lick.SetRot(0);
-                lick.SetPos(i, 0);
+                lick.SetPos(i, fila1);
                 lick.SetScale(1, 1);
                 lick.SetPriority(0.1f);
-                lick.Draw();
+                if(i == protaPosX && fila1 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    algo++;
+                }
+                else
+                {
+                    lick.Draw();
+                }
             }
             else if(contador <= 1)
             {
                 lick2.SetRot(0);
-                lick2.SetPos(i, 0);
+                lick2.SetPos(i, fila1);
                 lick2.SetScale(1, 1);
                 lick2.SetPriority(0.1f);
-                lick2.Draw();
+                if(i == protaPosX && fila1 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                }
+                else
+                {
+                    lick2.Draw();
+                }
             }
         }
     }
@@ -193,7 +217,7 @@ void RenderGL::render()
             if(contador > 1)
             {
                 geng.SetRot(0);
-                geng.SetPos(i, 2);
+                geng.SetPos(i, fila2);
                 geng.SetScale(1, 1);
                 geng.SetPriority(0.1f);
                 geng.Draw();
@@ -201,7 +225,7 @@ void RenderGL::render()
             else if(contador <= 1)
             {
                 geng2.SetRot(0);
-                geng2.SetPos(i, 2);
+                geng2.SetPos(i, fila2);
                 geng2.SetScale(1, 1);
                 geng2.SetPriority(0.1f);
                 geng2.Draw();
@@ -215,7 +239,7 @@ void RenderGL::render()
             if(contador > 1)
             {
                 nine.SetRot(0);
-                nine.SetPos(i, 4);
+                nine.SetPos(i, fila3);
                 nine.SetScale(1, 1);
                 nine.SetPriority(0.1f);
                 nine.Draw();
@@ -223,7 +247,7 @@ void RenderGL::render()
             else if(contador <= 1)
             {
                 nine2.SetRot(0);
-                nine2.SetPos(i, 4);
+                nine2.SetPos(i, fila3);
                 nine2.SetScale(1, 1);
                 nine2.SetPriority(0.1f);
                 nine2.Draw();
@@ -237,7 +261,7 @@ void RenderGL::render()
             if(contador > 1)
             {
                 chori.SetRot(0);
-                chori.SetPos(i, 6);
+                chori.SetPos(i, fila4);
                 chori.SetScale(1, 1);
                 chori.SetPriority(0.1f);
                 chori.Draw();
@@ -245,7 +269,7 @@ void RenderGL::render()
             else if(contador <= 1)
             {
                 chori2.SetRot(0);
-                chori2.SetPos(i, 6);
+                chori2.SetPos(i, fila4);
                 chori2.SetScale(1, 1);
                 chori2.SetPriority(0.1f);
                 chori2.Draw();
@@ -259,7 +283,7 @@ void RenderGL::render()
             if(contador > 1)
             {
                 onix.SetRot(0);
-                onix.SetPos(i, 8);
+                onix.SetPos(i, fila5);
                 onix.SetScale(1, 1);
                 onix.SetPriority(0.1f);
                 onix.Draw();
@@ -267,7 +291,7 @@ void RenderGL::render()
             else if(contador <= 1)
             {
                 onix2.SetRot(0);
-                onix2.SetPos(i, 8);
+                onix2.SetPos(i, fila5);
                 onix2.SetScale(1, 1);
                 onix2.SetPriority(0.1f);
                 onix2.Draw();

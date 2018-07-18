@@ -73,6 +73,12 @@ class RenderGL
         int balaPosX;
         int balaPosY;
 
+        int fila1;
+        int fila2;
+        int fila3;
+        int fila4;
+        int fila5;
+
         bool disparo;
 
         float contador;

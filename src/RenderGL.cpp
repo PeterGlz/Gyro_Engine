@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include <iostream>
 #include "SevenUp.h"
+#include "primitivo.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -126,12 +127,16 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
+    ///Fondo-----------------------------------------------------------
     fondo.SetRot(0);
     fondo.SetPos(-13.34, -10);
     fondo.SetScale(27, 20);
     fondo.SetPriority(0.0f);
     fondo.Draw();
 
+    DibTriangulo(-1, -8, 180, 0.5, 0.5, 1, 1, 1);
+
+    ///Personaje-----------------------------------------------------------
     if(contador > 1)
     {
         poke.SetRot(0);
@@ -149,6 +154,7 @@ void RenderGL::render()
         poke2.Draw();
     }
 
+    ///Movimiento y velocidad de disparo-----------------------------------------------------------
     if(disparo == true)
     {
         delay -= 0.18;
@@ -170,7 +176,8 @@ void RenderGL::render()
         bola.Draw();
     }
 
-    for(int i=-7; i<6; i++)
+    ///Enemigos-----------------------------------------------------------
+    for(int i=-7; i<6; i++)///Lickitung
     {
         if(i%2!=0)
         {
@@ -208,7 +215,7 @@ void RenderGL::render()
             }
         }
     }
-    for(int i=-7; i<6; i++)
+    for(int i=-7; i<6; i++)///Gengar
     {
         if(i%2!=0)
         {
@@ -230,7 +237,7 @@ void RenderGL::render()
             }
         }
     }
-    for(int i=-7; i<6; i++)
+    for(int i=-7; i<6; i++)///Ninetales
     {
         if(i%2!=0)
         {
@@ -252,7 +259,7 @@ void RenderGL::render()
             }
         }
     }
-    for(int i=-7; i<6; i++)
+    for(int i=-7; i<6; i++)///Charizard
     {
         if(i%2!=0)
         {
@@ -274,7 +281,7 @@ void RenderGL::render()
             }
         }
     }
-    for(int i=-7; i<6; i++)
+    for(int i=-7; i<6; i++)///Onix
     {
         if(i%2!=0)
         {
@@ -296,6 +303,9 @@ void RenderGL::render()
             }
         }
     }
+
+
+
 }
 
 bool Sprite::MouseEve (float _x, float _y)

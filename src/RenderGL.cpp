@@ -16,8 +16,6 @@ RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
-    //screenW = 800;
-
 }
 
 RenderGL::~RenderGL()
@@ -80,8 +78,18 @@ void RenderGL::inicializar()
 	protaPosY = -8;
 	delay = 1;
 	delayA = 1;
-	balaPosX;
-	balaPosY;
+
+	delay = 1;
+	delayA = 1;
+
+	delayP = 5;
+	delayPA = 5;
+
+	balaPosX = protaPosY;
+	balaPosY = protaPosY;
+
+	misilPosX = 0;
+	misilPosY = 8;
 
 	fila1 = 0;
 	fila2 = 2;
@@ -134,7 +142,24 @@ void RenderGL::render()
     fondo.SetPriority(0.0f);
     fondo.Draw();
 
-    DibTriangulo(-1, -8, 180, 0.5, 0.5, 1, 1, 1);
+    ///Proyectil enemigo-----------------------------------------------------------
+    DibTriangulo(misilPosX, misilPosY, 180, 0.3, 0.3, 1, 1, 1);
+    delayP -= 0.18;
+    if(delayP <= 0)
+    {
+        delay2 -= 0.18;
+        if (delay2 <= 0)
+        {
+            misilPosY--;
+            delay2 = delayA;
+        }
+        if(misilPosY <= -12)
+        {
+            misilPosY = 8;
+            delayP = delayPA;
+        }
+    }
+
 
     ///Personaje-----------------------------------------------------------
     if(contador > 1)
@@ -168,144 +193,186 @@ void RenderGL::render()
             disparo = false;
             balaPosY = protaPosY;
         }
-
         bola.SetRot(0);
-        bola.SetPos(protaPosX+0.2, balaPosY+1);
+        bola.SetPos(protaPosX, balaPosY);
         bola.SetScale(0.5f, 0.5f);
         bola.SetPriority(0.2f);
         bola.Draw();
     }
 
+
+
     ///Enemigos-----------------------------------------------------------
-    for(int i=-7; i<6; i++)///Lickitung
+    for(int i=0; i<14; i++)///Lickitung
     {
-        if(i%2!=0)
+        if(i%2!=0 && enemf1[i] == 0)
         {
             if(contador > 1)
             {
                 lick.SetRot(0);
-                lick.SetPos(i, fila1);
+                lick.SetPos(i-8, fila1);
                 lick.SetScale(1, 1);
                 lick.SetPriority(0.1f);
-                if(i == protaPosX && fila1 == balaPosY)
+                lick.Draw();
+                if(i-8 == protaPosX && fila1 == balaPosY)
                 {
                     disparo = false;
                     balaPosY = protaPosY;
-                }
-                else
-                {
-                    lick.Draw();
+                    enemf1[i] = 1;
                 }
             }
             else if(contador <= 1)
             {
                 lick2.SetRot(0);
-                lick2.SetPos(i, fila1);
+                lick2.SetPos(i-8, fila1);
                 lick2.SetScale(1, 1);
                 lick2.SetPriority(0.1f);
-                if(i == protaPosX && fila1 == balaPosY)
+                lick2.Draw();
+                if(i-8 == protaPosX && fila1 == balaPosY)
                 {
                     disparo = false;
                     balaPosY = protaPosY;
-                }
-                else
-                {
-                    lick2.Draw();
+                    enemf1[i] = 1;
                 }
             }
         }
     }
-    for(int i=-7; i<6; i++)///Gengar
+    for(int i=0; i<14; i++)///Gengar
     {
-        if(i%2!=0)
+        if(i%2!=0 && enemf2[i] == 0)
         {
             if(contador > 1)
             {
                 geng.SetRot(0);
-                geng.SetPos(i, fila2);
+                geng.SetPos(i-8, fila2);
                 geng.SetScale(1, 1);
                 geng.SetPriority(0.1f);
                 geng.Draw();
+                if(i-8 == protaPosX && fila2 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf2[i] = 1;
+                }
             }
             else if(contador <= 1)
             {
                 geng2.SetRot(0);
-                geng2.SetPos(i, fila2);
+                geng2.SetPos(i-8, fila2);
                 geng2.SetScale(1, 1);
                 geng2.SetPriority(0.1f);
                 geng2.Draw();
+                if(i-8 == protaPosX && fila2 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf2[i] = 1;
+                }
             }
         }
     }
-    for(int i=-7; i<6; i++)///Ninetales
+    for(int i=0; i<14; i++)///Ninetales
     {
-        if(i%2!=0)
+        if(i%2!=0 && enemf3[i] == 0)
         {
             if(contador > 1)
             {
                 nine.SetRot(0);
-                nine.SetPos(i, fila3);
+                nine.SetPos(i-8, fila3);
                 nine.SetScale(1, 1);
                 nine.SetPriority(0.1f);
                 nine.Draw();
+                if(i-8 == protaPosX && fila3 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf3[i] = 1;
+                }
             }
             else if(contador <= 1)
             {
                 nine2.SetRot(0);
-                nine2.SetPos(i, fila3);
+                nine2.SetPos(i-8, fila3);
                 nine2.SetScale(1, 1);
                 nine2.SetPriority(0.1f);
                 nine2.Draw();
+                if(i-8 == protaPosX && fila3 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf3[i] = 1;
+                }
             }
         }
     }
-    for(int i=-7; i<6; i++)///Charizard
+    for(int i=0; i<14; i++)///Charizard
     {
-        if(i%2!=0)
+        if(i%2!=0 && enemf4[i] == 0)
         {
             if(contador > 1)
             {
                 chori.SetRot(0);
-                chori.SetPos(i, fila4);
+                chori.SetPos(i-8, fila4);
                 chori.SetScale(1, 1);
                 chori.SetPriority(0.1f);
                 chori.Draw();
+                if(i-8 == protaPosX && fila4 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf4[i] = 1;
+                }
             }
             else if(contador <= 1)
             {
                 chori2.SetRot(0);
-                chori2.SetPos(i, fila4);
+                chori2.SetPos(i-8, fila4);
                 chori2.SetScale(1, 1);
                 chori2.SetPriority(0.1f);
                 chori2.Draw();
+                if(i-8 == protaPosX && fila4 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf4[i] = 1;
+                }
             }
         }
     }
-    for(int i=-7; i<6; i++)///Onix
+    for(int i=0; i<14; i++)///Onix
     {
-        if(i%2!=0)
+        if(i%2!=0 && enemf5[i] == 0)
         {
             if(contador > 1)
             {
                 onix.SetRot(0);
-                onix.SetPos(i, fila5);
+                onix.SetPos(i-8, fila5);
                 onix.SetScale(1, 1);
                 onix.SetPriority(0.1f);
                 onix.Draw();
+                if(i-8 == protaPosX && fila5 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf5[i] = 1;
+                }
             }
             else if(contador <= 1)
             {
                 onix2.SetRot(0);
-                onix2.SetPos(i, fila5);
+                onix2.SetPos(i-8, fila5);
                 onix2.SetScale(1, 1);
                 onix2.SetPriority(0.1f);
                 onix2.Draw();
+                if(i-8 == protaPosX && fila5 == balaPosY)
+                {
+                    disparo = false;
+                    balaPosY = protaPosY;
+                    enemf5[i] = 1;
+                }
             }
         }
     }
-
-
-
 }
 
 bool Sprite::MouseEve (float _x, float _y)

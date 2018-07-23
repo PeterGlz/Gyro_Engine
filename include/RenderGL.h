@@ -6,7 +6,6 @@
 #include "SevenUp.h"
 #include "Atlas.h"
 
-
 class RenderGL
 {
     private:
@@ -14,7 +13,6 @@ class RenderGL
 		float clipAreaYTop;
 		float clipAreaXRightt;
 		float clipAreaYBottom;
-
 
 	public:
 		RenderGL();
@@ -70,11 +68,12 @@ class RenderGL
 
         int protaPosX;
         int protaPosY;
+
         int balaPosX;
         int balaPosY;
 
         int misilPosX;
-        int misilPoxY;
+        int misilPosY;
 
         int fila1;
         int fila2;
@@ -82,11 +81,21 @@ class RenderGL
         int fila4;
         int fila5;
 
+        int enemf1 [14] = { };
+        int enemf2 [14] = { };
+        int enemf3 [14] = { };
+        int enemf4 [14] = { };
+        int enemf5 [14] = { };
+
         bool disparo;
 
         float contador;
         float delay;
         float delayA;
+
+        float delayP;
+        float delayPA;
+        float delay2;
 };
 
 extern RenderGL g_renderGL; //Singleton

@@ -193,6 +193,8 @@ int main(int argc, char* args[])
 	}
 	else
 	{
+	     Audio().musica("Pokemon_Fondo.mp3");
+
 		///GameLoop
 		bool GameLoop = false;
 

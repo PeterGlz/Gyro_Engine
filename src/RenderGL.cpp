@@ -88,7 +88,8 @@ void RenderGL::inicializar()
 	balaPosX = protaPosY;
 	balaPosY = protaPosY;
 
-	misilPosX = 0;
+	misilPosX = (rand() % 12) - 7;;
+	misilPosX = misilPosX - 0.5;
 	misilPosY = 8;
 
 	fila1 = 0;
@@ -156,6 +157,8 @@ void RenderGL::render()
         if(misilPosY <= -12)
         {
             misilPosY = 8;
+            misilPosX = (rand() % 12) - 7;
+            misilPosX = misilPosX - 0.5;
             delayP = delayPA;
         }
     }
@@ -179,6 +182,11 @@ void RenderGL::render()
         poke2.Draw();
     }
 
+    if(protaPosX+0.5 == misilPosX && protaPosY == misilPosY)
+    {
+         exit(0);
+    }
+
     ///Movimiento y velocidad de disparo-----------------------------------------------------------
     if(disparo == true)
     {
@@ -199,8 +207,6 @@ void RenderGL::render()
         bola.SetPriority(0.2f);
         bola.Draw();
     }
-
-
 
     ///Enemigos-----------------------------------------------------------
     for(int i=0; i<14; i++)///Lickitung

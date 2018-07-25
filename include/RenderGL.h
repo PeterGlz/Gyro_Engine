@@ -68,8 +68,8 @@ class RenderGL
         Sprite ditto2;
         Sprite groudon1;
         Sprite groudon2;
-        Sprite Lugia1;
-        Sprite Lugia2;
+        Sprite Lugiaa1;
+        Sprite Lugiaa2;
         Sprite mewtwo1;
         Sprite mewtwo2;
         Sprite racuyaza1;

@@ -100,6 +100,8 @@ void RenderGL::inicializar()
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
+    atl2.Load("Lugiaa.png");
+    atl2.Read("Lugiaa.txt");
     atl1.Init7up(&poke, 21);
     atl1.Init7up(&lick, 8);
     atl1.Init7up(&geng, 4);
@@ -118,8 +120,8 @@ void RenderGL::inicializar()
     atl1.Init7up(&ditto2, 3);
     atl1.Init7up(&groudon1, 6);
     atl1.Init7up(&groudon2, 7);
-    atl1.Init7up(&lugia1, 10);
-    atl1.Init7up(&lugia2, 11);
+    atl2.Init7up(&Lugia1, 0);
+    atl2.Init7up(&Lugia2, 1);
     atl1.Init7up(&mewtwo1, 12);
     atl1.Init7up(&mewtwo2, 13);
     atl1.Init7up(&racuyaza1, 19);
@@ -505,11 +507,11 @@ void RenderGL::render()
     if(vidaDitto >= 40 && vidaDitto <= 55){
         if(contador > 1)
         {
-            lugia1.SetRot(0);
-            lugia1.SetPos(-2, 7);
-            lugia1.SetScale(3, 3);
-            lugia1.SetPriority(1);
-            lugia1.Draw();
+            Lugia1.SetRot(0);
+            Lugia1.SetPos(-2, 7);
+            Lugia1.SetScale(3, 3);
+            Lugia1.SetPriority(1);
+            Lugia1.Draw();
 
             if(protaPosX == -2 && balaPosY == 7)
             {
@@ -521,11 +523,11 @@ void RenderGL::render()
         }
         else if(contador <= 1)
         {
-            lugia2.SetRot(0);
-            lugia2.SetPos(-2, 7);
-            lugia2.SetScale(3, 3);
-            lugia2.SetPriority(1);
-            lugia2.Draw();
+            Lugia2.SetRot(0);
+            Lugia2.SetPos(-2, 7);
+            Lugia2.SetScale(3, 3);
+            Lugia2.SetPriority(1);
+            Lugia2.Draw();
 
             if(protaPosX == -2 && balaPosY == 7)
             {
@@ -643,7 +645,7 @@ void RenderGL::render()
                 balaPosY = protaPosY;
             }
         }
-    }kkkk
+    }
 
     ///Racuyaza
     if(vidaDitto >= 0 && vidaDitto <= 15){

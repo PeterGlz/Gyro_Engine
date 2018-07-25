@@ -49,6 +49,7 @@ class RenderGL
         float offsetMouseY;
 
         Atlas atl1;
+        Atlas atl2;
         Sprite poke;
         Sprite lick;
         Sprite geng;
@@ -67,8 +68,8 @@ class RenderGL
         Sprite ditto2;
         Sprite groudon1;
         Sprite groudon2;
-        Sprite lugia1;
-        Sprite lugia2;
+        Sprite Lugia1;
+        Sprite Lugia2;
         Sprite mewtwo1;
         Sprite mewtwo2;
         Sprite racuyaza1;

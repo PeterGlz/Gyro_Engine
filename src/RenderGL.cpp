@@ -92,11 +92,11 @@ void RenderGL::inicializar()
 	misilPosX = misilPosX - 0.5;
 	misilPosY = 8;
 
-	fila1 = 0;
-	fila2 = 2;
-	fila3 = 4;
-	fila4 = 6;
-	fila5 = 8;
+	fila1 = -1;
+	fila2 = 1;
+	fila3 = 3;
+	fila4 = 5;
+	fila5 = 7;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
@@ -218,7 +218,7 @@ void RenderGL::render()
         bola.SetRot(0);
         bola.SetPos(protaPosX, balaPosY);
         bola.SetScale(0.5f, 0.5f);
-        bola.SetPriority(0.2f);
+        bola.SetPriority(0.0f);
         bola.Draw();
     }
 
@@ -400,12 +400,12 @@ void RenderGL::render()
         if(contador > 1)
         {
             ditto1.SetRot(0);
-            ditto1.SetPos(-1, 7);
+            ditto1.SetPos(-1, 8);
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -416,12 +416,12 @@ void RenderGL::render()
         else if(contador <= 1)
         {
             ditto2.SetRot(0);
-            ditto2.SetPos(-1, 7);
+            ditto2.SetPos(-1, 8);
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -441,7 +441,7 @@ void RenderGL::render()
             groudon1.SetPriority(1);
             groudon1.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 
@@ -457,7 +457,7 @@ void RenderGL::render()
             groudon2.SetPriority(1);
             groudon2.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 
@@ -472,12 +472,12 @@ void RenderGL::render()
         if(contador > 1)
         {
             ditto1.SetRot(0);
-            ditto1.SetPos(-1, 7);
+            ditto1.SetPos(-1, 8);
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -488,12 +488,12 @@ void RenderGL::render()
         else if(contador <= 1)
         {
             ditto2.SetRot(0);
-            ditto2.SetPos(-1, 7);
+            ditto2.SetPos(-1, 8);
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -513,7 +513,7 @@ void RenderGL::render()
             Lugiaa1.SetPriority(1);
             Lugiaa1.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 
@@ -529,7 +529,7 @@ void RenderGL::render()
             Lugiaa2.SetPriority(1);
             Lugiaa2.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 
@@ -544,12 +544,12 @@ void RenderGL::render()
         if(contador > 1)
         {
             ditto1.SetRot(0);
-            ditto1.SetPos(-1, 7);
+            ditto1.SetPos(-1, 8);
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -560,12 +560,12 @@ void RenderGL::render()
         else if(contador <= 1)
         {
             ditto2.SetRot(0);
-            ditto2.SetPos(-1, 7);
+            ditto2.SetPos(-1, 8);
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -580,8 +580,8 @@ void RenderGL::render()
         if(contador > 1)
         {
             mewtwo1.SetRot(0);
-            mewtwo1.SetPos(-1, 7);
-            mewtwo1.SetScale(3, 3);
+            mewtwo1.SetPos(-1.5f, 7);
+            mewtwo1.SetScale(2, 2);
             mewtwo1.SetPriority(1);
             mewtwo1.Draw();
 
@@ -596,8 +596,8 @@ void RenderGL::render()
         else if(contador <= 1)
         {
             mewtwo2.SetRot(0);
-            mewtwo2.SetPos(-1, 7);
-            mewtwo2.SetScale(3, 3);
+            mewtwo2.SetPos(-1.5f, 7);
+            mewtwo2.SetScale(2, 2);
             mewtwo2.SetPriority(1);
             mewtwo2.Draw();
 
@@ -616,12 +616,12 @@ void RenderGL::render()
         if(contador > 1)
         {
             ditto1.SetRot(0);
-            ditto1.SetPos(-1, 7);
+            ditto1.SetPos(-1, 8);
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -632,12 +632,12 @@ void RenderGL::render()
         else if(contador <= 1)
         {
             ditto2.SetRot(0);
-            ditto2.SetPos(-1, 7);
+            ditto2.SetPos(-1, 8);
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
 
-            if(protaPosX == -1 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
 
@@ -657,7 +657,7 @@ void RenderGL::render()
             racuyaza1.SetPriority(1);
             racuyaza1.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 
@@ -673,7 +673,7 @@ void RenderGL::render()
             racuyaza2.SetPriority(1);
             racuyaza2.Draw();
 
-            if(protaPosX == -2 && balaPosY == 7)
+            if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
 

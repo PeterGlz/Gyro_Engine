@@ -63,6 +63,16 @@ class RenderGL
         Sprite chori2;
         Sprite onix2;
         Sprite bola2;
+        Sprite ditto1;
+        Sprite ditto2;
+        Sprite groudon1;
+        Sprite groudon2;
+        Sprite lugia1;
+        Sprite lugia2;
+        Sprite mewtwo1;
+        Sprite mewtwo2;
+        Sprite racuyaza1;
+        Sprite racuyaza2;
 
         Sprite fondo;
 
@@ -80,6 +90,8 @@ class RenderGL
         int fila3;
         int fila4;
         int fila5;
+
+        int vidaDitto = 100;
 
         int enemf1 [14] = { };
         int enemf2 [14] = { };

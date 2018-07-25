@@ -114,6 +114,18 @@ void RenderGL::inicializar()
     atl1.Init7up(&chori2, 1);
     atl1.Init7up(&onix2, 17);
     atl1.Init7up(&bola2, 19);
+    atl1.Init7up(&ditto1, 2);
+    atl1.Init7up(&ditto2, 3);
+    atl1.Init7up(&groudon1, 6);
+    atl1.Init7up(&groudon2, 7);
+    atl1.Init7up(&lugia1, 10);
+    atl1.Init7up(&lugia2, 11);
+    atl1.Init7up(&mewtwo1, 12);
+    atl1.Init7up(&mewtwo2, 13);
+    atl1.Init7up(&racuyaza1, 19);
+    atl1.Init7up(&racuyaza2, 20);
+
+
     fondo.Load("fondo.jpg");
 }
 
@@ -163,7 +175,6 @@ void RenderGL::render()
         }
     }
 
-
     ///Personaje-----------------------------------------------------------
     if(contador > 1)
     {
@@ -182,6 +193,7 @@ void RenderGL::render()
         poke2.Draw();
     }
 
+    ///Muere el protagonista
     if(protaPosX+0.5 == misilPosX && protaPosY == misilPosY)
     {
          exit(0);
@@ -379,6 +391,298 @@ void RenderGL::render()
             }
         }
     }
+
+    ///JEFE -------------
+    ///Ditto
+    if(vidaDitto >= 80){
+        if(contador > 1)
+        {
+            ditto1.SetRot(0);
+            ditto1.SetPos(-1, 7);
+            ditto1.SetScale(1, 1);
+            ditto1.SetPriority(1);
+            ditto1.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            ditto2.SetRot(0);
+            ditto2.SetPos(-1, 7);
+            ditto2.SetScale(1, 1);
+            ditto2.SetPriority(1);
+            ditto2.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///Groudon
+    if(vidaDitto >= 60 && vidaDitto <= 79){
+        if(contador > 1)
+        {
+            groudon1.SetRot(0);
+            groudon1.SetPos(-2, 7);
+            groudon1.SetScale(3, 3);
+            groudon1.SetPriority(1);
+            groudon1.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            groudon2.SetRot(0);
+            groudon2.SetPos(-2, 7);
+            groudon2.SetScale(3, 3);
+            groudon2.SetPriority(1);
+            groudon2.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///DittoHerido
+    if(vidaDitto >= 56 && vidaDitto <= 59){
+        if(contador > 1)
+        {
+            ditto1.SetRot(0);
+            ditto1.SetPos(-1, 7);
+            ditto1.SetScale(1, 1);
+            ditto1.SetPriority(1);
+            ditto1.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            ditto2.SetRot(0);
+            ditto2.SetPos(-1, 7);
+            ditto2.SetScale(1, 1);
+            ditto2.SetPriority(1);
+            ditto2.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///Lugia
+    if(vidaDitto >= 40 && vidaDitto <= 55){
+        if(contador > 1)
+        {
+            lugia1.SetRot(0);
+            lugia1.SetPos(-2, 7);
+            lugia1.SetScale(3, 3);
+            lugia1.SetPriority(1);
+            lugia1.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            lugia2.SetRot(0);
+            lugia2.SetPos(-2, 7);
+            lugia2.SetScale(3, 3);
+            lugia2.SetPriority(1);
+            lugia2.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///DittoHerido
+    if(vidaDitto >= 36 && vidaDitto <= 39){
+        if(contador > 1)
+        {
+            ditto1.SetRot(0);
+            ditto1.SetPos(-1, 7);
+            ditto1.SetScale(1, 1);
+            ditto1.SetPriority(1);
+            ditto1.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            ditto2.SetRot(0);
+            ditto2.SetPos(-1, 7);
+            ditto2.SetScale(1, 1);
+            ditto2.SetPriority(1);
+            ditto2.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///Mewtwo
+    if(vidaDitto >= 20 && vidaDitto <= 35){
+        if(contador > 1)
+        {
+            mewtwo1.SetRot(0);
+            mewtwo1.SetPos(-1, 7);
+            mewtwo1.SetScale(3, 3);
+            mewtwo1.SetPriority(1);
+            mewtwo1.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            mewtwo2.SetRot(0);
+            mewtwo2.SetPos(-1, 7);
+            mewtwo2.SetScale(3, 3);
+            mewtwo2.SetPriority(1);
+            mewtwo2.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+    ///DittoHerido
+    if(vidaDitto >= 16 && vidaDitto <= 19){
+        if(contador > 1)
+        {
+            ditto1.SetRot(0);
+            ditto1.SetPos(-1, 7);
+            ditto1.SetScale(1, 1);
+            ditto1.SetPriority(1);
+            ditto1.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            ditto2.SetRot(0);
+            ditto2.SetPos(-1, 7);
+            ditto2.SetScale(1, 1);
+            ditto2.SetPriority(1);
+            ditto2.Draw();
+
+            if(protaPosX == -1 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }kkkk
+
+    ///Racuyaza
+    if(vidaDitto >= 0 && vidaDitto <= 15){
+        if(contador > 1)
+        {
+            racuyaza1.SetRot(0);
+            racuyaza1.SetPos(-2, 7);
+            racuyaza1.SetScale(3, 3);
+            racuyaza1.SetPriority(1);
+            racuyaza1.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+        else if(contador <= 1)
+        {
+            racuyaza2.SetRot(0);
+            racuyaza2.SetPos(-2, 7);
+            racuyaza2.SetScale(3, 3);
+            racuyaza2.SetPriority(1);
+            racuyaza2.Draw();
+
+            if(protaPosX == -2 && balaPosY == 7)
+            {
+                vidaDitto -= 2;
+
+                disparo = false;
+                balaPosY = protaPosY;
+            }
+        }
+    }
+
+
+    ///------------
 }
 
 bool Sprite::MouseEve (float _x, float _y)

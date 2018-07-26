@@ -83,7 +83,8 @@ void RenderGL::inicializar()
 	delayA = 1;
 
 	delayP = 5;
-	delayPA = 5;
+	delayP2 = 10;
+	delayP3 = 15;
 
 	balaPosX = protaPosY;
 	balaPosY = protaPosY;
@@ -91,12 +92,16 @@ void RenderGL::inicializar()
 	misilPosX = (rand() % 12) - 7;;
 	misilPosX = misilPosX - 0.5;
 	misilPosY = 8;
+	misilPosY2 = 8;
+	misilPosY3 = 8;
 
 	fila1 = -1;
 	fila2 = 1;
 	fila3 = 3;
 	fila4 = 5;
 	fila5 = 7;
+
+	contEnem = 0;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
@@ -126,7 +131,6 @@ void RenderGL::inicializar()
     atl1.Init7up(&mewtwo2, 13);
     atl1.Init7up(&racuyaza1, 19);
     atl1.Init7up(&racuyaza2, 20);
-
 
     fondo.Load("fondo.jpg");
 }
@@ -158,24 +162,85 @@ void RenderGL::render()
     fondo.Draw();
 
     ///Proyectil enemigo-----------------------------------------------------------
-    DibTriangulo(misilPosX, misilPosY, 180, 0.3, 0.3, 1, 1, 1);
-    delayP -= 0.18;
-    if(delayP <= 0)
+    if(contEnem >= 1)
     {
-        delay2 -= 0.18;
-        if (delay2 <= 0)
+        DibTriangulo(misilPosX, misilPosY, 180, 0.3, 0.3, 1, 1, 1);
+        delayP -= 0.18;
+        if(delayP <= 0)
         {
-            misilPosY--;
-            delay2 = delayA;
-        }
-        if(misilPosY <= -12)
-        {
-            misilPosY = 8;
-            misilPosX = (rand() % 12) - 7;
-            misilPosX = misilPosX - 0.5;
-            delayP = delayPA;
+            delay2 -= 0.18;
+            if (delay2 <= 0)
+            {
+                misilPosY--;
+                delay2 = delayA;
+            }
+            if(misilPosY <= -12)
+            {
+                misilPosY = 8;
+                misilPosX = (rand() % 12) - 7;
+                misilPosX = misilPosX - 0.5;
+                delayP = 0;
+            }
         }
     }
+    else
+    {
+        DibPoligono(-0.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(-2.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(1.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(-1.5, misilPosY2, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(0.5, misilPosY2, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(-0.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(-1.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(0.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
+        delayP -= 0.18;
+        delayP2 -= 0.18;
+        delayP3 -= 0.18;
+        if(delayP <= 0)
+        {
+            delay2 -= 0.18;
+            if (delay2 <= 0)
+            {
+                misilPosY--;
+                delay2 = delayA;
+            }
+            if(misilPosY <= -12)
+            {
+                misilPosY = 8;
+                delayP = 0;
+            }
+        }
+        if(delayP2 <= 0)
+        {
+            delay3 -= 0.18;
+            if (delay3 <= 0)
+            {
+                misilPosY2--;
+                delay3 = delayA;
+            }
+            if(misilPosY2 <= -12)
+            {
+                misilPosY2 = 8;
+                delayP2 = 0;
+            }
+        }
+        if(delayP3 <= 0)
+        {
+            delay4 -= 0.18;
+            if (delay4 <= 0)
+            {
+                misilPosY3--;
+                delay4 = delayA;
+            }
+            if(misilPosY3 <= -12)
+            {
+                misilPosY3 = 8;
+                delayP3 = 0;
+            }
+        }
+    }
+
+
 
     ///Personaje-----------------------------------------------------------
     if(contador > 1)
@@ -238,6 +303,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf1[i] = 1;
                 }
             }
@@ -252,6 +318,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf1[i] = 1;
                 }
             }
@@ -272,6 +339,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf2[i] = 1;
                 }
             }
@@ -286,6 +354,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf2[i] = 1;
                 }
             }
@@ -306,6 +375,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf3[i] = 1;
                 }
             }
@@ -320,6 +390,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf3[i] = 1;
                 }
             }
@@ -340,6 +411,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf4[i] = 1;
                 }
             }
@@ -354,6 +426,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf4[i] = 1;
                 }
             }
@@ -374,6 +447,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf5[i] = 1;
                 }
             }
@@ -388,6 +462,7 @@ void RenderGL::render()
                 {
                     disparo = false;
                     balaPosY = protaPosY;
+                    contEnem --;
                     enemf5[i] = 1;
                 }
             }
@@ -395,8 +470,7 @@ void RenderGL::render()
     }
 
     ///JEFE -------------
-    ///Ditto
-    if(vidaDitto >= 80){
+    if(vidaDitto >= 80 && contEnem <= 0){    ///Ditto
         if(contador > 1)
         {
             ditto1.SetRot(0);
@@ -404,11 +478,9 @@ void RenderGL::render()
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
-
             if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
-
                 disparo = false;
                 balaPosY = protaPosY;
             }
@@ -420,7 +492,6 @@ void RenderGL::render()
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
-
             if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
@@ -430,9 +501,7 @@ void RenderGL::render()
             }
         }
     }
-
-    ///Groudon
-    if(vidaDitto >= 60 && vidaDitto <= 79){
+    if(vidaDitto >= 60 && vidaDitto <= 79  && contEnem <= 0){    ///Groudon
         if(contador > 1)
         {
             groudon1.SetRot(0);
@@ -440,11 +509,9 @@ void RenderGL::render()
             groudon1.SetScale(3, 3);
             groudon1.SetPriority(1);
             groudon1.Draw();
-
             if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
-
                 disparo = false;
                 balaPosY = protaPosY;
             }
@@ -456,19 +523,15 @@ void RenderGL::render()
             groudon2.SetScale(3, 3);
             groudon2.SetPriority(1);
             groudon2.Draw();
-
             if(protaPosX == -1 && balaPosY == 7)
             {
                 vidaDitto -= 2;
-
                 disparo = false;
                 balaPosY = protaPosY;
             }
         }
     }
-
-    ///DittoHerido
-    if(vidaDitto >= 56 && vidaDitto <= 59){
+    if(vidaDitto >= 56 && vidaDitto <= 59 && contEnem <= 0){    ///DittoHerido
         if(contador > 1)
         {
             ditto1.SetRot(0);
@@ -476,11 +539,9 @@ void RenderGL::render()
             ditto1.SetScale(1, 1);
             ditto1.SetPriority(1);
             ditto1.Draw();
-
             if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
-
                 disparo = false;
                 balaPosY = protaPosY;
             }
@@ -492,19 +553,15 @@ void RenderGL::render()
             ditto2.SetScale(1, 1);
             ditto2.SetPriority(1);
             ditto2.Draw();
-
             if(protaPosX == -1 && balaPosY == 8)
             {
                 vidaDitto -= 2;
-
                 disparo = false;
                 balaPosY = protaPosY;
             }
         }
     }
-
-    ///Lugia
-    if(vidaDitto >= 40 && vidaDitto <= 55){
+    if(vidaDitto >= 40 && vidaDitto <= 55 && contEnem <= 0){    ///Lugia
         if(contador > 1)
         {
             Lugiaa1.SetRot(0);
@@ -538,9 +595,7 @@ void RenderGL::render()
             }
         }
     }
-
-    ///DittoHerido
-    if(vidaDitto >= 36 && vidaDitto <= 39){
+    if(vidaDitto >= 36 && vidaDitto <= 39 && contEnem <= 0){    ///DittoHerido
         if(contador > 1)
         {
             ditto1.SetRot(0);
@@ -574,9 +629,7 @@ void RenderGL::render()
             }
         }
     }
-
-    ///Mewtwo
-    if(vidaDitto >= 20 && vidaDitto <= 35){
+    if(vidaDitto >= 20 && vidaDitto <= 35 && contEnem <= 0){    ///Mewtwo
         if(contador > 1)
         {
             mewtwo1.SetRot(0);
@@ -610,9 +663,7 @@ void RenderGL::render()
             }
         }
     }
-
-    ///DittoHerido
-    if(vidaDitto >= 16 && vidaDitto <= 19){
+    if(vidaDitto >= 16 && vidaDitto <= 19 && contEnem <= 0){    ///DittoHerido
         if(contador > 1)
         {
             ditto1.SetRot(0);
@@ -646,9 +697,7 @@ void RenderGL::render()
             }
         }
     }
-
-    ///Racuyaza
-    if(vidaDitto >= 0 && vidaDitto <= 15){
+    if(vidaDitto >= 0 && vidaDitto <= 15 && contEnem <= 0){    ///Racuyaza
         if(contador > 1)
         {
             racuyaza1.SetRot(0);
@@ -682,9 +731,6 @@ void RenderGL::render()
             }
         }
     }
-
-
-    ///------------
 }
 
 bool Sprite::MouseEve (float _x, float _y)

@@ -85,12 +85,16 @@ class RenderGL
 
         float misilPosX;
         float misilPosY;
+        float misilPosY2;
+        float misilPosY3;
 
         int fila1;
         int fila2;
         int fila3;
         int fila4;
         int fila5;
+
+        int contEnem;
 
         int vidaDitto = 100;
 
@@ -105,10 +109,12 @@ class RenderGL
         float contador;
         float delay;
         float delayA;
-
         float delayP;
-        float delayPA;
+        float delayP2;
+        float delayP3;
         float delay2;
+        float delay3;
+        float delay4;
 };
 
 extern RenderGL g_renderGL; //Singleton

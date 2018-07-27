@@ -84,7 +84,11 @@ class RenderGL
         int balaPosY;
 
         float misilPosX;
+        float misilPosX1;
+        float misilPosX2;
+        float misilPosX3;
         float misilPosY;
+        float misilPosY1;
         float misilPosY2;
         float misilPosY3;
 

@@ -24,6 +24,8 @@ RenderGL::~RenderGL()
 
 void RenderGL::inicializar()
 {
+    srand(time(NULL));
+
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEPTH_CLAMP);
     glDepthMask(true);
@@ -83,15 +85,18 @@ void RenderGL::inicializar()
 	delayA = 1;
 
 	delayP = 5;
-	delayP2 = 10;
-	delayP3 = 15;
+	delayP2 = 13;
+	delayP3 = 21;
 
 	balaPosX = protaPosY;
 	balaPosY = protaPosY;
 
-	misilPosX = (rand() % 12) - 7;;
-	misilPosX = misilPosX - 0.5;
+	misilPosX =((rand() % 12) - 6) - 0.5;
+    misilPosX1 = ((rand() % 12) - 6) - 0.5;
+    misilPosX2 =    ((rand() % 12) - 6) - 0.5;
+    misilPosX3 = ((rand() % 12) - 6) - 0.5;
 	misilPosY = 8;
+	misilPosY1 = 8;
 	misilPosY2 = 8;
 	misilPosY3 = 8;
 
@@ -101,7 +106,7 @@ void RenderGL::inicializar()
 	fila4 = 5;
 	fila5 = 7;
 
-	contEnem = 0;
+	contEnem = 35;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
@@ -161,10 +166,15 @@ void RenderGL::render()
     fondo.SetPriority(0.0f);
     fondo.Draw();
 
+
+
     ///Proyectil enemigo-----------------------------------------------------------
     if(contEnem >= 1)
     {
-        DibTriangulo(misilPosX, misilPosY, 180, 0.3, 0.3, 1, 1, 1);
+        DibTriangulo(misilPosX, misilPosY, 180, 0.3, 0.3, 0, 0, 1);
+        DibTriangulo(misilPosX1, misilPosY, 180, 0.3, 0.3, 0, 0, 1);
+        DibTriangulo(misilPosX2, misilPosY, 180, 0.3, 0.3, 0, 0, 1);
+        DibTriangulo(misilPosX3, misilPosY, 180, 0.3, 0.3, 0, 0, 1);
         delayP -= 0.18;
         if(delayP <= 0)
         {
@@ -177,22 +187,24 @@ void RenderGL::render()
             if(misilPosY <= -12)
             {
                 misilPosY = 8;
-                misilPosX = (rand() % 12) - 7;
-                misilPosX = misilPosX - 0.5;
+                misilPosX =((rand() % 12) - 6) - 0.5;
+                misilPosX1 = ((rand() % 12) - 6) - 0.5;
+                misilPosX2 =    ((rand() % 12) - 6) - 0.5;
+                misilPosX3 = ((rand() % 12) - 6) - 0.5;
                 delayP = 0;
             }
         }
     }
     else
     {
-        DibPoligono(-0.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(-2.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(1.5, misilPosY, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(-1.5, misilPosY2, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(0.5, misilPosY2, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(-0.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(-1.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
-        DibPoligono(0.5, misilPosY3, 6, 0, 0.3, 1, 1, 1);
+        DibPoligono(-0.5, misilPosY1, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(-2.5, misilPosY1, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(1.5, misilPosY1, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(-1.5, misilPosY2, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(0.5, misilPosY2, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(-0.5, misilPosY3, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(-1.5, misilPosY3, 6, 0, 0.3, 1, 0, 0);
+        DibPoligono(0.5, misilPosY3, 6, 0, 0.3, 1, 0, 0);
         delayP -= 0.18;
         delayP2 -= 0.18;
         delayP3 -= 0.18;
@@ -201,12 +213,12 @@ void RenderGL::render()
             delay2 -= 0.18;
             if (delay2 <= 0)
             {
-                misilPosY--;
+                misilPosY1--;
                 delay2 = delayA;
             }
-            if(misilPosY <= -12)
+            if(misilPosY1 <= -12)
             {
-                misilPosY = 8;
+                misilPosY1 = 8;
                 delayP = 0;
             }
         }
@@ -240,6 +252,8 @@ void RenderGL::render()
         }
     }
 
+    glColor3f(1,1,1);
+
 
 
     ///Personaje-----------------------------------------------------------
@@ -261,9 +275,31 @@ void RenderGL::render()
     }
 
     ///Muere el protagonista
-    if(protaPosX+0.5 == misilPosX && protaPosY == misilPosY)
+    if(protaPosY == misilPosY)
     {
+        if(protaPosX+0.5 == misilPosX || protaPosX+0.5 == misilPosX1 || protaPosX+0.5 == misilPosX2 || protaPosX+0.5 == misilPosX3)
          exit(0);
+    }
+    if(protaPosY == misilPosY1)
+    {
+        if(protaPosX+0.5 == -0.5 || protaPosX+0.5 == -2.5 || protaPosX+0.5 == 1.5)
+        {
+            exit(0);
+        }
+    }
+    if(protaPosY == misilPosY2)
+    {
+        if(protaPosX+0.5 == -1.5 || protaPosX+0.5 == 0.5)
+        {
+            exit(0);
+        }
+    }
+    if(protaPosY == misilPosY3)
+    {
+        if(protaPosX+0.5 == -0.5 || protaPosX+0.5 == -1.5 || protaPosX+0.5 == 0.5)
+        {
+            exit(0);
+        }
     }
 
     ///Movimiento y velocidad de disparo-----------------------------------------------------------

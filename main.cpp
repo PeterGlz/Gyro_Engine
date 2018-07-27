@@ -60,6 +60,7 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	if(_key == 'k')
     {
         g_renderGL.disparo = true;
+        g_renderGL.balaPosX = g_renderGL.protaPosX;
     }
 }
 

@@ -5,6 +5,8 @@
 #include <iostream>
 #include "SevenUp.h"
 #include "primitivo.h"
+#include "Audio.h"
+#include "SDL_mixer.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -106,7 +108,7 @@ void RenderGL::inicializar()
 	fila4 = 5;
 	fila5 = 7;
 
-	contEnem = 35;
+	contEnem = 0;
 
     atl1.Load("pokesprites.png");
     atl1.Read("pokesprites.txt");
@@ -504,6 +506,7 @@ void RenderGL::render()
             }
         }
     }
+
 
     ///JEFE -------------
     if(vidaDitto >= 80 && contEnem <= 0){    ///Ditto

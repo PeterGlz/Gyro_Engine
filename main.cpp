@@ -59,8 +59,10 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	}
 	if(_key == 'k')
     {
-        g_renderGL.disparo = true;
-        g_renderGL.balaPosX = g_renderGL.protaPosX;
+        if(g_renderGL.disparo == false){
+            g_renderGL.disparo = true;
+            g_renderGL.balaPosX = g_renderGL.protaPosX;
+        }
     }
 }
 
@@ -187,6 +189,9 @@ int main(int argc, char* args[])
     int long tiempoA = SDL_GetTicks();
     double t = 0.0;
 
+
+
+
 	///Start up SDL and create window
 	if (!init())
 	{
@@ -194,8 +199,15 @@ int main(int argc, char* args[])
 	}
 	else
 	{
-	     Audio().musica("Pokemon_Fondo.mp3");
 
+if(g_renderGL.contEnem <= 0)
+{
+    Audio().musica("Pokemon_Final.mp3");
+}
+else
+{
+     Audio().musica("Pokemon_Fondo.mp3");
+}
 		///GameLoop
 		bool GameLoop = false;
 
